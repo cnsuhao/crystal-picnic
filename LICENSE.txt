@@ -1,0 +1,27 @@
+The license on binary files distributed by Nooskewl (installers, DMG,
+TAR.GZ, etc) is in docs/FamilyLicense.txt for the paid versions and
+docs/FreewareLicense.txt for demos. The license for the source code is
+below.
+
+--
+
+Anything in third_party has its own license.
+
+--
+
+Only significantly modified forks of this game (i.e., altogether new
+games) are to be distributed. You can also take any snippets or chunks
+of the code and use them provided the end product is substantially
+different from this game or their use is not obvious to the end user.
+Source code is not to be distributed aside from the methods set up by
+the author. You must not use the same or similar title if you fork the
+game.
+
+You can base any free or commercial game on the work here if the above
+conditions are met. 
+
+The end user is permitted to download, compile and run the game but
+package managers must not automate the process.
+
+This code comes with no warranty whatsoever and the author will not be
+held responsible for any issues arrising from its use.
