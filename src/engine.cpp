@@ -3378,7 +3378,7 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 	ALLEGRO_BITMAP *bg;
 	int flags = al_get_new_bitmap_flags();
 	draw_touch_controls = false;
-	if (cfg.linear_filtering) {
+	if (render_buffer) {
 		int no_preserve_flag;
 #ifdef ALLEGRO_ANDROID
 		no_preserve_flag = 0;
@@ -3575,7 +3575,7 @@ int Engine::prompt(std::vector<std::string> texts, std::string text1, std::strin
 	ALLEGRO_BITMAP *bg;
 	int flags = al_get_new_bitmap_flags();
 	draw_touch_controls = false;
-	if (cfg.linear_filtering) {
+	if (render_buffer) {
 		int no_preserve_flag;
 #ifdef ALLEGRO_ANDROID
 		no_preserve_flag = 0;
@@ -3779,7 +3779,7 @@ bool Engine::yes_no_prompt(std::vector<std::string> texts, std::vector<Loop *> *
 	ALLEGRO_BITMAP *bg;
 	int flags = al_get_new_bitmap_flags();
 	draw_touch_controls = false;
-	if (cfg.linear_filtering) {
+	if (render_buffer) {
 		int no_preserve_flag;
 #ifdef ALLEGRO_ANDROID
 		no_preserve_flag = 0;
@@ -4017,7 +4017,7 @@ int Engine::get_number(std::vector<std::string> texts, int low, int high, int st
 	ALLEGRO_BITMAP *bg;
 	int flags = al_get_new_bitmap_flags();
 	draw_touch_controls = false;
-	if (cfg.linear_filtering) {
+	if (render_buffer) {
 		int no_preserve_flag;
 #ifdef ALLEGRO_ANDROID
 		no_preserve_flag = 0;

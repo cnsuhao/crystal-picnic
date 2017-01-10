@@ -793,7 +793,7 @@ void Main_Menu_Loop::create_bg()
 	Wrap::Bitmap *work = engine->get_work_bitmap();
 	ALLEGRO_BITMAP *old_target = al_get_target_bitmap();
 
-	if (!cfg.linear_filtering) {
+	if (engine->get_render_buffer() == NULL) {
 		ALLEGRO_TRANSFORM t, backup;
 		al_copy_transform(&t, al_get_current_transform());
 		ALLEGRO_DISPLAY *display = engine->get_display();
