@@ -165,14 +165,16 @@ CSteamAchievements*	g_SteamAchievements = NULL;
 
 void achieve(std::string name)
 {
-    if (steam_init_failed) {
-        return;
-    }
+	if (steam_init_failed) {
+		return;
+	}
 	if (engine->milestone_is_complete(name)) {
 		return;
 	}
 	engine->set_milestone_complete(name, true);
-	g_SteamAchievements->SetAchievement(name.c_str());
+	if (g_SteamAchievements) {
+		g_SteamAchievements->SetAchievement(name.c_str());
+	}
 }
 
 void init_steamworks()
