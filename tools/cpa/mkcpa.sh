@@ -6,6 +6,7 @@
 # that doesn't work with this script.
 
 FIND="/c/mingw/msys/1.0/bin/find"
+SORT="/c/mingw/msys/1.0/bin/sort"
 
 xcopy //e //y data __data__.tmp\\
 
@@ -19,7 +20,7 @@ for f in `$FIND . -name "*_new.png"` ; do mv $f `echo $f | sed -e 's/_new//'` ; 
 
 cd ../..
 
-FILES=`$FIND * -type f | grep -v README.txt | sort`
+FILES=`$FIND * -type f | grep -v README.txt | $SORT`
 
 echo "Writing header..."
 # the big space is a tab
