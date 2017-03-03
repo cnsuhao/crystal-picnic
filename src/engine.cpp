@@ -569,7 +569,21 @@ bool Engine::init_allegro()
 
 	al_install_keyboard();
 
-	cfg.load();
+	bool config_read = cfg.load();
+
+#ifdef STEAMWORKS
+	if (config_read == false) {
+		std::string steam_language = get_steam_language();
+		if (steam_language == "french") {
+			cfg.language = "French";
+		}
+		else if (steam_language == "german") {
+			cfg.language = "German";
+		}
+	}
+#else
+	(void)config_read;
+#endif
 
 	// Process command line arguments
 	int index;

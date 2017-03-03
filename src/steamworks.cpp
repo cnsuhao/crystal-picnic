@@ -9,6 +9,7 @@
 #include "snprintf.h"
 
 static bool steam_init_failed = false;
+static std::string steam_language;
 
 #define _ACH_ID( id, name ) { id, #id, name, "", 0, 0 }
 struct Achievement_t
@@ -138,11 +139,10 @@ void CSteamAchievements::OnUserStatsStored( UserStatsStored_t *pCallback )
 
 void CSteamAchievements::OnAchievementStored( UserAchievementStored_t *pCallback )
 {
-     // we may get callbacks for other games' stats arriving, ignore them
-     if ( m_iAppID == pCallback->m_nGameID )	
-     {
-          //OutputDebugString( "Stored Achievement for Steam\n" );
-     }
+	// we may get callbacks for other games' stats arriving, ignore them
+	if (m_iAppID == pCallback->m_nGameID)	{
+		//OutputDebugString( "Stored Achievement for Steam\n" );
+	}
 }
 
 #define NUM_ACHIEVEMENTS 10
@@ -182,11 +182,16 @@ void init_steamworks()
 	// Initialize Steam
 	bool bRet = SteamAPI_Init();
 	// Create the SteamAchievements object if Steam was successfully initialized
-	if (bRet)
-	{
+	if (bRet) {
 		g_SteamAchievements = new CSteamAchievements(g_Achievements, NUM_ACHIEVEMENTS);
+		steam_language = GetCurrentGameLanguage();
 	}
-    else {
-        steam_init_failed = true;
-    }
+	else {
+		steam_init_failed = true;
+	}
+}
+
+std::string get_steam_language()
+{
+	return steam_language;
 }

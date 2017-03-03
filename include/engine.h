@@ -407,6 +407,10 @@ protected:
 	Wrap::Bitmap *trophy;
 	double achievement_time;
 #endif
+
+#ifdef STEAMWORKS
+	std::string steam_language;
+#endif
 };
 
 extern Engine *engine;

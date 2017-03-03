@@ -5,5 +5,6 @@
 
 void achieve(std::string name);
 void init_steamworks();
+std::string get_steam_language();
 
 #endif // STEAMWORKS_H
