@@ -184,7 +184,7 @@ void init_steamworks()
 	// Create the SteamAchievements object if Steam was successfully initialized
 	if (bRet) {
 		g_SteamAchievements = new CSteamAchievements(g_Achievements, NUM_ACHIEVEMENTS);
-		steam_language = GetCurrentGameLanguage();
+		steam_language = SteamApps()->GetCurrentGameLanguage();
 	}
 	else {
 		steam_init_failed = true;
