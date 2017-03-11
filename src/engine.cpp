@@ -3382,13 +3382,6 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 		ok_icon->getHeight()
 	);
 
-	tgui::push();
-
-	tgui::addWidget(frame);
-	tgui::addWidget(ok_icon);
-	tgui::addWidget(ok_button);
-	tgui::setFocus(ok_button);
-
 	ALLEGRO_BITMAP *bg;
 	int flags = al_get_new_bitmap_flags();
 	draw_touch_controls = false;
@@ -3436,6 +3429,14 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 	draw_touch_controls = true;
 	al_set_new_bitmap_flags(flags);
 
+	tgui::hide();
+	tgui::push();
+
+	tgui::addWidget(frame);
+	tgui::addWidget(ok_icon);
+	tgui::addWidget(ok_button);
+	tgui::setFocus(ok_button);
+
 	void (*bfc)();
 	if (render_buffer) {
 		al_set_target_bitmap(render_buffer->bitmap);
@@ -3470,6 +3471,7 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 	Wrap::destroy_bitmap(ok_bitmap);
 
 	tgui::pop();
+	tgui::unhide();
 
 	al_flush_event_queue(event_queue);
 }
@@ -3577,15 +3579,6 @@ int Engine::prompt(std::vector<std::string> texts, std::string text1, std::strin
 		icon2->getHeight()
 	);
 
-	tgui::push();
-
-	tgui::addWidget(frame);
-	tgui::addWidget(icon1);
-	tgui::addWidget(button1);
-	tgui::addWidget(icon2);
-	tgui::addWidget(button2);
-	tgui::setFocus(button1);
-
 	ALLEGRO_BITMAP *bg;
 	int flags = al_get_new_bitmap_flags();
 	draw_touch_controls = false;
@@ -3633,6 +3626,16 @@ int Engine::prompt(std::vector<std::string> texts, std::string text1, std::strin
 	draw_touch_controls = true;
 	al_set_new_bitmap_flags(flags);
 
+	tgui::hide();
+	tgui::push();
+
+	tgui::addWidget(frame);
+	tgui::addWidget(icon1);
+	tgui::addWidget(button1);
+	tgui::addWidget(icon2);
+	tgui::addWidget(button2);
+	tgui::setFocus(button1);
+
 	void (*bfc)();
 	if (render_buffer) {
 		al_set_target_bitmap(render_buffer->bitmap);
@@ -3672,6 +3675,7 @@ int Engine::prompt(std::vector<std::string> texts, std::string text1, std::strin
 	Wrap::destroy_bitmap(bitmap2);
 
 	tgui::pop();
+	tgui::unhide();
 
 	al_flush_event_queue(event_queue);
 
@@ -3781,15 +3785,6 @@ bool Engine::yes_no_prompt(std::vector<std::string> texts, std::vector<Loop *> *
 		no_icon->getHeight()
 	);
 
-	tgui::push();
-
-	tgui::addWidget(frame);
-	tgui::addWidget(yes_icon);
-	tgui::addWidget(yes_button);
-	tgui::addWidget(no_icon);
-	tgui::addWidget(no_button);
-	tgui::setFocus(yes_button);
-
 	ALLEGRO_BITMAP *bg;
 	int flags = al_get_new_bitmap_flags();
 	draw_touch_controls = false;
@@ -3837,6 +3832,16 @@ bool Engine::yes_no_prompt(std::vector<std::string> texts, std::vector<Loop *> *
 	draw_touch_controls = true;
 	al_set_new_bitmap_flags(flags);
 
+	tgui::hide();
+	tgui::push();
+
+	tgui::addWidget(frame);
+	tgui::addWidget(yes_icon);
+	tgui::addWidget(yes_button);
+	tgui::addWidget(no_icon);
+	tgui::addWidget(no_button);
+	tgui::setFocus(yes_button);
+
 	void (*bfc)();
 	if (render_buffer) {
 		al_set_target_bitmap(render_buffer->bitmap);
@@ -3876,6 +3881,7 @@ bool Engine::yes_no_prompt(std::vector<std::string> texts, std::vector<Loop *> *
 	Wrap::destroy_bitmap(no_bitmap);
 
 	tgui::pop();
+	tgui::unhide();
 
 	al_flush_event_queue(event_queue);
 
@@ -4015,19 +4021,6 @@ int Engine::get_number(std::vector<std::string> texts, int low, int high, int st
 		cancel_icon->getHeight()
 	);
 
-	tgui::push();
-
-	tgui::addWidget(frame);
-	tgui::addWidget(get_number_down_button);
-	tgui::addWidget(number_widget);
-	tgui::addWidget(get_number_up_button);
-	tgui::addWidget(ok_icon);
-	tgui::addWidget(ok_button);
-	tgui::addWidget(cancel_icon);
-	tgui::addWidget(cancel_button);
-
-	tgui::setFocus(ok_button);
-
 	ALLEGRO_BITMAP *bg;
 	int flags = al_get_new_bitmap_flags();
 	draw_touch_controls = false;
@@ -4075,6 +4068,20 @@ int Engine::get_number(std::vector<std::string> texts, int low, int high, int st
 	draw_touch_controls = true;
 	al_set_new_bitmap_flags(flags);
 
+	tgui::hide();
+	tgui::push();
+
+	tgui::addWidget(frame);
+	tgui::addWidget(get_number_down_button);
+	tgui::addWidget(number_widget);
+	tgui::addWidget(get_number_up_button);
+	tgui::addWidget(ok_icon);
+	tgui::addWidget(ok_button);
+	tgui::addWidget(cancel_icon);
+	tgui::addWidget(cancel_button);
+
+	tgui::setFocus(ok_button);
+
 	void (*bfc)();
 	if (render_buffer) {
 		al_set_target_bitmap(render_buffer->bitmap);
@@ -4120,6 +4127,7 @@ int Engine::get_number(std::vector<std::string> texts, int low, int high, int st
 	Wrap::destroy_bitmap(cancel_bitmap);
 
 	tgui::pop();
+	tgui::unhide();
 
 	al_flush_event_queue(event_queue);
 
