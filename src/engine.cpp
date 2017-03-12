@@ -571,17 +571,19 @@ bool Engine::init_allegro()
 
 	bool config_read = cfg.load();
 
-#ifdef STEAMWORKS
 	if (config_read == false) {
-		std::string steam_language = get_steam_language();
-		if (steam_language == "french") {
+#ifdef STEAMWORKS
+		std::string language = get_steam_language();
+#elif defined ALLEGRO_ANDROID
+		std::string language = get_android_language();
+#else
+		if (language == "french") {
 			cfg.language = "French";
 		}
-		else if (steam_language == "german") {
+		else if (language == "german") {
 			cfg.language = "German";
 		}
 	}
-#else
 	(void)config_read;
 #endif
 

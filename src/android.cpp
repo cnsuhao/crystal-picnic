@@ -296,3 +296,39 @@ int amazon_initialized()
 		"initialized"
 	);
 }
+
+std::string get_android_language()
+{
+	static char buf[20];
+
+	jstring s =
+		(jstring)_jni_callObjectMethod(
+			_al_android_get_jnienv(),
+			_al_android_activity_object(),
+			"get_android_language",
+			"()Ljava/lang/String;"
+		);
+
+	if (s == NULL)
+		return "";
+
+	const char *native = _al_android_get_jnienv()->GetStringUTFChars(s, 0);
+
+	strcpy(buf, native);
+
+	_al_android_get_jnienv()->ReleaseStringUTFChars(s, native);
+
+	_al_android_get_jnienv()->DeleteLocalRef(s);
+
+	std::string s = buf;
+
+	// convert to steam style since that was the first one we did
+	if (s == "de") {
+		s = "german";
+	}
+	else if (s == "fr") {
+		s = "french";
+	}
+
+	return s;
+}

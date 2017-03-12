@@ -200,5 +200,10 @@ public class CPActivity extends AllegroActivity {
 	{
 		return initialize_success;
 	}
+
+	public String get_android_language()
+	{
+		return Locale.getDefault().language;
+	}
 }
 
