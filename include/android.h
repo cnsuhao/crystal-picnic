@@ -16,7 +16,7 @@ void achieve(const char *id);
 void init_play_services();
 void show_achievements();
 int amazon_initialized();
-std::string get_android_language();
+const char *get_android_language();
 
 #ifdef __cplusplus
 }

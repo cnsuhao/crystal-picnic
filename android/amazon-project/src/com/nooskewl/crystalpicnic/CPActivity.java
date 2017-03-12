@@ -223,5 +223,10 @@ public class CPActivity extends AllegroActivity implements PurchasingListener {
 	{
 		return initialize_success;
 	}
+
+	public String get_android_language()
+	{
+		return Locale.getDefault().getLanguage();
+	}
 }
 

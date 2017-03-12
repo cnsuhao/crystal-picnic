@@ -577,6 +577,8 @@ bool Engine::init_allegro()
 #elif defined ALLEGRO_ANDROID
 		std::string language = get_android_language();
 #else
+		std::string language = "English";
+#endif
 		if (language == "french") {
 			cfg.language = "French";
 		}
@@ -584,8 +586,6 @@ bool Engine::init_allegro()
 			cfg.language = "German";
 		}
 	}
-	(void)config_read;
-#endif
 
 	// Process command line arguments
 	int index;

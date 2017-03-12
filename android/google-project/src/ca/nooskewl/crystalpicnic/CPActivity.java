@@ -256,4 +256,9 @@ public class CPActivity extends AllegroActivity implements ConnectionCallbacks, 
 			logString("Play Services not available, can't achieve :(");
 		}
 	}
+
+	public String get_android_language()
+	{
+		return Locale.getDefault().getLanguage();
+	}
 }

@@ -203,7 +203,7 @@ public class CPActivity extends AllegroActivity {
 
 	public String get_android_language()
 	{
-		return Locale.getDefault().language;
+		return Locale.getDefault().getLanguage();
 	}
 }
 

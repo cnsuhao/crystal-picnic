@@ -142,5 +142,10 @@ public class CPActivity extends AllegroActivity {
 	{
 		return getPackageManager().hasSystemFeature("android.hardware.touchscreen") == false;
 	}
+
+	public String get_android_language()
+	{
+		return Locale.getDefault().getLanguage();
+	}
 }
 

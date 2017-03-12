@@ -7,6 +7,8 @@
 #include "android.h"
 #include "engine.h"
 
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+
 extern "C" {
 JNIEnv *_al_android_get_jnienv();
 void __jni_checkException(JNIEnv *env, const char *file, const char *fname, int line);
@@ -297,9 +299,9 @@ int amazon_initialized()
 	);
 }
 
-std::string get_android_language()
+const char *get_android_language()
 {
-	static char buf[20];
+	static char buf[100];
 
 	jstring s =
 		(jstring)_jni_callObjectMethod(
@@ -320,15 +322,17 @@ std::string get_android_language()
 
 	_al_android_get_jnienv()->DeleteLocalRef(s);
 
-	std::string s = buf;
+	std::string str = buf;
 
 	// convert to steam style since that was the first one we did
-	if (s == "de") {
-		s = "german";
+	if (str == "de") {
+		str = "german";
 	}
-	else if (s == "fr") {
-		s = "french";
+	else if (str == "fr") {
+		str = "french";
 	}
 
-	return s;
+	strncpy(buf, str.c_str(), MIN(sizeof(buf)-1, str.length()));
+
+	return buf;
 }
