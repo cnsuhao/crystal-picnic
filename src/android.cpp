@@ -332,7 +332,7 @@ const char *get_android_language()
 		str = "french";
 	}
 
-	strncpy(buf, str.c_str(), MIN(sizeof(buf)-1, str.length()));
+	strcpy(buf, str.c_str());
 
 	return buf;
 }
