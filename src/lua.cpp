@@ -1703,7 +1703,7 @@ static int c_get_bitmap_size(lua_State *stack)
 static int c_get_bitmap_texture_size(lua_State *stack)
 {
 	Wrap::Bitmap *bmp = (Wrap::Bitmap *)lua_touserdata(stack, 1);
-	int true_w, true_h;
+	int true_w = 0, true_h = 0;
 	if (al_get_display_flags(engine->get_display()) & ALLEGRO_OPENGL) {
 		al_get_opengl_texture_size(bmp->bitmap, &true_w, &true_h);
 	}
