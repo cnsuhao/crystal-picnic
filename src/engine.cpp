@@ -550,7 +550,7 @@ void Engine::setup_screen_size()
 
 bool Engine::init_allegro()
 {
-#ifdef ADMOB && defined ALLEGRO_IPHONE
+#if defined ADMOB && defined ALLEGRO_IPHONE
 	initAdmob();
 #endif
 
