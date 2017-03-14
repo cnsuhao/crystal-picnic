@@ -5,6 +5,10 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 
+#ifdef ADMOB
+#include "android.h"
+#endif
+
 #include "area_loop.h"
 #include "battle_entity.h"
 #include "bitmap.h"

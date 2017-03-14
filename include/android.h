@@ -18,6 +18,10 @@ void show_achievements();
 int amazon_initialized();
 const char *get_android_language();
 
+#ifdef ADMOB
+void showAd();
+#endif
+
 #ifdef __cplusplus
 }
 #endif

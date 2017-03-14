@@ -336,3 +336,15 @@ const char *get_android_language()
 
 	return buf;
 }
+
+#ifdef ADMOB
+void showAd()
+{
+	_jni_callVoidMethodV(
+		_al_android_get_jnienv(),
+		_al_android_activity_object(),
+		"showAd",
+		"()V"
+	);
+}
+#endif

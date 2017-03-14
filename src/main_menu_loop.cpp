@@ -603,6 +603,10 @@ Main_Menu_Loop::Main_Menu_Loop(std::vector<Player *> players, std::vector<Loop *
 	for (size_t i = 0; i < players.size(); i++) {
 		resource_manager->reference_bitmap("misc_graphics/interface/" + players[i]->get_name() + "_normal_icon.png");
 	}
+
+#ifdef ADMOB
+	showAd();
+#endif
 }
 
 Main_Menu_Loop::~Main_Menu_Loop()
