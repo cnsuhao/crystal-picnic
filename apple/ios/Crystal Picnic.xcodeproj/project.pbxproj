@@ -8,6 +8,106 @@
 
 /* Begin PBXBuildFile section */
 		962E88C91A33EFAA0004DE04 /* difficulty_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 962E88C81A33EFAA0004DE04 /* difficulty_loop.cpp */; };
+		9653248A1E78077F00242946 /* gamecenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 968AA2FF1CFDF27A008F0B32 /* gamecenter.mm */; };
+		9653248B1E78077F00242946 /* lua.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918C19AFFA4B0084C11A /* lua.cpp */; };
+		9653248C1E78077F00242946 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919719AFFA4B0084C11A /* player.cpp */; };
+		9653248D1E78077F00242946 /* credits_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917B19AFFA4B0084C11A /* credits_loop.cpp */; };
+		9653248E1E78077F00242946 /* bass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916C19AFFA4B0084C11A /* bass.cpp */; };
+		9653248F1E78077F00242946 /* map_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919119AFFA4B0084C11A /* map_loop.cpp */; };
+		965324901E78077F00242946 /* xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091AA19AFFA4B0084C11A /* xml.cpp */; };
+		965324911E78077F00242946 /* error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918319AFFA4B0084C11A /* error.cpp */; };
+		965324921E78077F00242946 /* crystalpicnic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917D19AFFA4B0084C11A /* crystalpicnic.cpp */; };
+		965324931E78077F00242946 /* abilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916219AFFA4B0084C11A /* abilities.cpp */; };
+		965324941E78077F00242946 /* game_specific_globals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918619AFFA4B0084C11A /* game_specific_globals.cpp */; };
+		965324951E78077F00242946 /* audio_config_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D35D1E1B39BDB9000B18FD /* audio_config_loop.cpp */; };
+		965324961E78077F00242946 /* frame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918519AFFA4B0084C11A /* frame.cpp */; };
+		965324971E78077F00242946 /* enemy_avatar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918019AFFA4B0084C11A /* enemy_avatar.cpp */; };
+		965324981E78077F00242946 /* main_menu_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918D19AFFA4B0084C11A /* main_menu_loop.cpp */; };
+		965324991E78077F00242946 /* astar_character_role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916919AFFA4B0084C11A /* astar_character_role.cpp */; };
+		9653249A1E78077F00242946 /* music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919319AFFA4B0084C11A /* music.cpp */; };
+		9653249B1E78077F00242946 /* video_player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A419AFFA4B0084C11A /* video_player.cpp */; };
+		9653249C1E78077F00242946 /* battle_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916F19AFFA4B0084C11A /* battle_loop.cpp */; };
+		9653249D1E78077F00242946 /* area_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916819AFFA4B0084C11A /* area_manager.cpp */; };
+		9653249E1E78077F00242946 /* battle_transition_in.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917119AFFA4B0084C11A /* battle_transition_in.cpp */; };
+		9653249F1E78077F00242946 /* animation_set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916419AFFA4B0084C11A /* animation_set.cpp */; };
+		965324A01E78077F00242946 /* dirty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9676F47A1D5D54A1005867C5 /* dirty.cpp */; };
+		965324A11E78077F00242946 /* mt19937ar.c in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919219AFFA4B0084C11A /* mt19937ar.c */; };
+		965324A21E78077F00242946 /* battle_pathfind.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917019AFFA4B0084C11A /* battle_pathfind.cpp */; };
+		965324A31E78077F00242946 /* general.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918719AFFA4B0084C11A /* general.cpp */; };
+		965324A41E78077F00242946 /* skeleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919D19AFFA4B0084C11A /* skeleton.cpp */; };
+		965324A51E78077F00242946 /* astar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916A19AFFA4B0084C11A /* astar.cpp */; };
+		965324A61E78077F00242946 /* bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917219AFFA4B0084C11A /* bitmap.cpp */; };
+		965324A71E78077F00242946 /* particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919619AFFA4B0084C11A /* particle.cpp */; };
+		965324A81E78077F00242946 /* speech_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A019AFFA4B0084C11A /* speech_loop.cpp */; };
+		965324A91E78077F00242946 /* atlas_accessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9676F4781D5D54A1005867C5 /* atlas_accessor.cpp */; };
+		965324AA1E78077F00242946 /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918219AFFA4B0084C11A /* entity.cpp */; };
+		965324AB1E78077F00242946 /* apple.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916619AFFA4B0084C11A /* apple.m */; };
+		965324AC1E78077F00242946 /* bones.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917319AFFA4B0084C11A /* bones.cpp */; };
+		965324AD1E78077F00242946 /* video_config_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C4541419F172E300D8FCFF /* video_config_loop.cpp */; };
+		965324AE1E78077F00242946 /* wrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9676F47B1D5D54A1005867C5 /* wrap.cpp */; };
+		965324AF1E78077F00242946 /* triangulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A319AFFA4B0084C11A /* triangulate.cpp */; };
+		965324B01E78077F00242946 /* steering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A119AFFA4B0084C11A /* steering.cpp */; };
+		965324B11E78077F00242946 /* animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916519AFFA4B0084C11A /* animation.cpp */; };
+		965324B21E78077F00242946 /* language_config_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C4541019F16F7500D8FCFF /* language_config_loop.cpp */; };
+		965324B31E78077F00242946 /* widgets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A919AFFA4B0084C11A /* widgets.cpp */; };
+		965324B41E78077F00242946 /* my_load_bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919419AFFA4B0084C11A /* my_load_bitmap.cpp */; };
+		965324B51E78077F00242946 /* weaponized_entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A619AFFA4B0084C11A /* weaponized_entity.cpp */; };
+		965324B61E78077F00242946 /* area_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916719AFFA4B0084C11A /* area_loop.cpp */; };
+		965324B71E78077F00242946 /* saveload_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919A19AFFA4B0084C11A /* saveload_loop.cpp */; };
+		965324B81E78077F00242946 /* difficulty_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 962E88C81A33EFAA0004DE04 /* difficulty_loop.cpp */; };
+		965324B91E78077F00242946 /* npc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919519AFFA4B0084C11A /* npc.cpp */; };
+		965324BA1E78077F00242946 /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918119AFFA4B0084C11A /* engine.cpp */; };
+		965324BB1E78077F00242946 /* input_config_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918B19AFFA4B0084C11A /* input_config_loop.cpp */; };
+		965324BC1E78077F00242946 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917419AFFA4B0084C11A /* camera.cpp */; };
+		965324BD1E78077F00242946 /* crystal_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917C19AFFA4B0084C11A /* crystal_loop.cpp */; };
+		965324BE1E78077F00242946 /* character_map_entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917519AFFA4B0084C11A /* character_map_entity.cpp */; };
+		965324BF1E78077F00242946 /* collidable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917719AFFA4B0084C11A /* collidable.cpp */; };
+		965324C01E78077F00242946 /* config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917919AFFA4B0084C11A /* config.cpp */; };
+		965324C11E78077F00242946 /* bass_fileprocs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916B19AFFA4B0084C11A /* bass_fileprocs.cpp */; };
+		965324C21E78077F00242946 /* follow_character_role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918419AFFA4B0084C11A /* follow_character_role.cpp */; };
+		965324C31E78077F00242946 /* battle_entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916E19AFFA4B0084C11A /* battle_entity.cpp */; };
+		965324C41E78077F00242946 /* snprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919E19AFFA4B0084C11A /* snprintf.c */; };
+		965324C51E78077F00242946 /* graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918819AFFA4B0084C11A /* graphics.cpp */; };
+		965324C61E78077F00242946 /* map_entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919019AFFA4B0084C11A /* map_entity.cpp */; };
+		965324C71E78077F00242946 /* sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919F19AFFA4B0084C11A /* sound.cpp */; };
+		965324C81E78077F00242946 /* character_role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917619AFFA4B0084C11A /* character_role.cpp */; };
+		965324C91E78077F00242946 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0918E19AFFA4B0084C11A /* main.cpp */; };
+		965324CA1E78077F00242946 /* well512.c in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A719AFFA4B0084C11A /* well512.c */; };
+		965324CB1E78077F00242946 /* shop_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919C19AFFA4B0084C11A /* shop_loop.cpp */; };
+		965324CC1E78077F00242946 /* collision_detection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917819AFFA4B0084C11A /* collision_detection.cpp */; };
+		965324CD1E78077F00242946 /* shaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919B19AFFA4B0084C11A /* shaders.cpp */; };
+		965324CE1E78077F00242946 /* direct3d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917E19AFFA4B0084C11A /* direct3d.cpp */; };
+		965324CF1E78077F00242946 /* runner_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919919AFFA4B0084C11A /* runner_loop.cpp */; };
+		965324D01E78077F00242946 /* atlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9676F4791D5D54A1005867C5 /* atlas.cpp */; };
+		965324D11E78077F00242946 /* settings_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96C4541219F1729900D8FCFF /* settings_loop.cpp */; };
+		965324D21E78077F00242946 /* whack_a_skunk_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A819AFFA4B0084C11A /* whack_a_skunk_loop.cpp */; };
+		965324D31E78077F00242946 /* cpa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917A19AFFA4B0084C11A /* cpa.cpp */; };
+		965324D41E78077F00242946 /* wander_character_role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D091A519AFFA4B0084C11A /* wander_character_role.cpp */; };
+		965324D51E78077F00242946 /* resource_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0919819AFFA4B0084C11A /* resource_manager.cpp */; };
+		965324D61E78077F00242946 /* enemy_avatar_wander_character_role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917F19AFFA4B0084C11A /* enemy_avatar_wander_character_role.cpp */; };
+		965324D71E78077F00242946 /* battle_ai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916D19AFFA4B0084C11A /* battle_ai.cpp */; };
+		965324D91E78077F00242946 /* libtgui2-static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CD157F1D31EB3500D140C8 /* libtgui2-static.a */; };
+		965324DA1E78077F00242946 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968AA2F71CFDDAF2008F0B32 /* libpng.a */; };
+		965324DB1E78077F00242946 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9686087D1B6B13EF0008BD29 /* QuartzCore.framework */; };
+		965324DC1E78077F00242946 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9686087B1B6B13A30008BD29 /* CFNetwork.framework */; };
+		965324DD1E78077F00242946 /* liblua5.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968608771B6B12C30008BD29 /* liblua5.2.a */; };
+		965324DE1E78077F00242946 /* libAllegro5_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D35D1C1B39BCB5000B18FD /* libAllegro5_iOS.a */; };
+		965324DF1E78077F00242946 /* libbassmidi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34B61B6B048C00705360 /* libbassmidi.a */; };
+		965324E01E78077F00242946 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34B41B6B046F00705360 /* libz.dylib */; };
+		965324E11E78077F00242946 /* libbass.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34A81B6B046A00705360 /* libbass.a */; };
+		965324E21E78077F00242946 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34A91B6B046A00705360 /* libfreetype.a */; };
+		965324E31E78077F00242946 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96919F551D001752001A2702 /* GameKit.framework */; };
+		965324E41E78077F00242946 /* libpoly2tri.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34AB1B6B046A00705360 /* libpoly2tri.a */; };
+		965324E51E78077F00242946 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D0921C19B003A80084C11A /* Accelerate.framework */; };
+		965324E61E78077F00242946 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D0921A19B003460084C11A /* OpenGLES.framework */; };
+		965324E71E78077F00242946 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D0921819B0033F0084C11A /* AudioToolbox.framework */; };
+		965324E81E78077F00242946 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD8DCF19AFE7CA001BDCE2 /* CoreGraphics.framework */; };
+		965324E91E78077F00242946 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD8DD119AFE7CA001BDCE2 /* UIKit.framework */; };
+		965324EA1E78077F00242946 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD8DCD19AFE7CA001BDCE2 /* Foundation.framework */; };
+		965324EC1E78077F00242946 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96BD8DDF19AFE7CA001BDCE2 /* Images.xcassets */; };
+		965324ED1E78077F00242946 /* iPhone6LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968AA3011CFE0C2A008F0B32 /* iPhone6LaunchScreen.storyboard */; };
+		965324EF1E78077F00242946 /* data.cpa.uncompressed in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96D0922119B007010084C11A /* data.cpa.uncompressed */; };
+		965324F61E78081300242946 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965324F51E78081300242946 /* GoogleMobileAds.framework */; };
 		9676F47C1D5D54A1005867C5 /* atlas_accessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9676F4781D5D54A1005867C5 /* atlas_accessor.cpp */; };
 		9676F47D1D5D54A1005867C5 /* atlas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9676F4791D5D54A1005867C5 /* atlas.cpp */; };
 		9676F47E1D5D54A1005867C5 /* dirty.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9676F47A1D5D54A1005867C5 /* dirty.cpp */; };
@@ -109,6 +209,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		965324EE1E78077F00242946 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				965324EF1E78077F00242946 /* data.cpa.uncompressed in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96D0922019B006E60084C11A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,6 +233,9 @@
 
 /* Begin PBXFileReference section */
 		962E88C81A33EFAA0004DE04 /* difficulty_loop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = difficulty_loop.cpp; path = ../../src/difficulty_loop.cpp; sourceTree = "<group>"; };
+		965324F31E78077F00242946 /* Crystal Picnic Free.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crystal Picnic Free.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		965324F41E78077F00242946 /* Crystal Picnic copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Crystal Picnic copy-Info.plist"; path = "/Users/trent/code/crystal-picnic/apple/ios/Crystal Picnic copy-Info.plist"; sourceTree = "<absolute>"; };
+		965324F51E78081300242946 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../../../libs/ios/lib/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		9676F4781D5D54A1005867C5 /* atlas_accessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = atlas_accessor.cpp; path = ../../src/atlas_accessor.cpp; sourceTree = "<group>"; };
 		9676F4791D5D54A1005867C5 /* atlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = atlas.cpp; path = ../../src/atlas.cpp; sourceTree = "<group>"; };
 		9676F47A1D5D54A1005867C5 /* dirty.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = dirty.cpp; path = ../../src/dirty.cpp; sourceTree = "<group>"; };
@@ -231,6 +344,32 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		965324D81E78077F00242946 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				965324F61E78081300242946 /* GoogleMobileAds.framework in Frameworks */,
+				965324D91E78077F00242946 /* libtgui2-static.a in Frameworks */,
+				965324DA1E78077F00242946 /* libpng.a in Frameworks */,
+				965324DB1E78077F00242946 /* QuartzCore.framework in Frameworks */,
+				965324DC1E78077F00242946 /* CFNetwork.framework in Frameworks */,
+				965324DD1E78077F00242946 /* liblua5.2.a in Frameworks */,
+				965324DE1E78077F00242946 /* libAllegro5_iOS.a in Frameworks */,
+				965324DF1E78077F00242946 /* libbassmidi.a in Frameworks */,
+				965324E01E78077F00242946 /* libz.dylib in Frameworks */,
+				965324E11E78077F00242946 /* libbass.a in Frameworks */,
+				965324E21E78077F00242946 /* libfreetype.a in Frameworks */,
+				965324E31E78077F00242946 /* GameKit.framework in Frameworks */,
+				965324E41E78077F00242946 /* libpoly2tri.a in Frameworks */,
+				965324E51E78077F00242946 /* Accelerate.framework in Frameworks */,
+				965324E61E78077F00242946 /* OpenGLES.framework in Frameworks */,
+				965324E71E78077F00242946 /* AudioToolbox.framework in Frameworks */,
+				965324E81E78077F00242946 /* CoreGraphics.framework in Frameworks */,
+				965324E91E78077F00242946 /* UIKit.framework in Frameworks */,
+				965324EA1E78077F00242946 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96BD8DC719AFE7CA001BDCE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -346,6 +485,7 @@
 				96BD8DCC19AFE7CA001BDCE2 /* Frameworks */,
 				96BD8DCB19AFE7CA001BDCE2 /* Products */,
 				96F62FB91D31070500420563 /* OptimizationProfiles */,
+				965324F41E78077F00242946 /* Crystal Picnic copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -353,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				96BD8DCA19AFE7CA001BDCE2 /* Crystal Picnic.app */,
+				965324F31E78077F00242946 /* Crystal Picnic Free.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -360,6 +501,7 @@
 		96BD8DCC19AFE7CA001BDCE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				965324F51E78081300242946 /* GoogleMobileAds.framework */,
 				96CD157F1D31EB3500D140C8 /* libtgui2-static.a */,
 				96919F551D001752001A2702 /* GameKit.framework */,
 				968AA2F71CFDDAF2008F0B32 /* libpng.a */,
@@ -414,6 +556,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		965324881E78077F00242946 /* Crystal Picnic Free */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 965324F01E78077F00242946 /* Build configuration list for PBXNativeTarget "Crystal Picnic Free" */;
+			buildPhases = (
+				965324891E78077F00242946 /* Sources */,
+				965324D81E78077F00242946 /* Frameworks */,
+				965324EB1E78077F00242946 /* Resources */,
+				965324EE1E78077F00242946 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Crystal Picnic Free";
+			productName = "Crystal Picnic";
+			productReference = 965324F31E78077F00242946 /* Crystal Picnic Free.app */;
+			productType = "com.apple.product-type.application";
+		};
 		96BD8DC919AFE7CA001BDCE2 /* Crystal Picnic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96BD8DF619AFE7CA001BDCE2 /* Build configuration list for PBXNativeTarget "Crystal Picnic" */;
@@ -441,8 +601,12 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Nooskewl;
 				TargetAttributes = {
+					965324881E78077F00242946 = {
+						DevelopmentTeam = ZCLK6CUZ99;
+					};
 					96BD8DC919AFE7CA001BDCE2 = {
 						DevelopmentTeam = ZCLK6CUZ99;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 1;
@@ -464,11 +628,21 @@
 			projectRoot = "";
 			targets = (
 				96BD8DC919AFE7CA001BDCE2 /* Crystal Picnic */,
+				965324881E78077F00242946 /* Crystal Picnic Free */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		965324EB1E78077F00242946 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				965324EC1E78077F00242946 /* Images.xcassets in Resources */,
+				965324ED1E78077F00242946 /* iPhone6LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96BD8DC819AFE7CA001BDCE2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,6 +655,91 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		965324891E78077F00242946 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9653248A1E78077F00242946 /* gamecenter.mm in Sources */,
+				9653248B1E78077F00242946 /* lua.cpp in Sources */,
+				9653248C1E78077F00242946 /* player.cpp in Sources */,
+				9653248D1E78077F00242946 /* credits_loop.cpp in Sources */,
+				9653248E1E78077F00242946 /* bass.cpp in Sources */,
+				9653248F1E78077F00242946 /* map_loop.cpp in Sources */,
+				965324901E78077F00242946 /* xml.cpp in Sources */,
+				965324911E78077F00242946 /* error.cpp in Sources */,
+				965324921E78077F00242946 /* crystalpicnic.cpp in Sources */,
+				965324931E78077F00242946 /* abilities.cpp in Sources */,
+				965324941E78077F00242946 /* game_specific_globals.cpp in Sources */,
+				965324951E78077F00242946 /* audio_config_loop.cpp in Sources */,
+				965324961E78077F00242946 /* frame.cpp in Sources */,
+				965324971E78077F00242946 /* enemy_avatar.cpp in Sources */,
+				965324981E78077F00242946 /* main_menu_loop.cpp in Sources */,
+				965324991E78077F00242946 /* astar_character_role.cpp in Sources */,
+				9653249A1E78077F00242946 /* music.cpp in Sources */,
+				9653249B1E78077F00242946 /* video_player.cpp in Sources */,
+				9653249C1E78077F00242946 /* battle_loop.cpp in Sources */,
+				9653249D1E78077F00242946 /* area_manager.cpp in Sources */,
+				9653249E1E78077F00242946 /* battle_transition_in.cpp in Sources */,
+				9653249F1E78077F00242946 /* animation_set.cpp in Sources */,
+				965324A01E78077F00242946 /* dirty.cpp in Sources */,
+				965324A11E78077F00242946 /* mt19937ar.c in Sources */,
+				965324A21E78077F00242946 /* battle_pathfind.cpp in Sources */,
+				965324A31E78077F00242946 /* general.cpp in Sources */,
+				965324A41E78077F00242946 /* skeleton.cpp in Sources */,
+				965324A51E78077F00242946 /* astar.cpp in Sources */,
+				965324A61E78077F00242946 /* bitmap.cpp in Sources */,
+				965324A71E78077F00242946 /* particle.cpp in Sources */,
+				965324A81E78077F00242946 /* speech_loop.cpp in Sources */,
+				965324A91E78077F00242946 /* atlas_accessor.cpp in Sources */,
+				965324AA1E78077F00242946 /* entity.cpp in Sources */,
+				965324AB1E78077F00242946 /* apple.m in Sources */,
+				965324AC1E78077F00242946 /* bones.cpp in Sources */,
+				965324AD1E78077F00242946 /* video_config_loop.cpp in Sources */,
+				965324AE1E78077F00242946 /* wrap.cpp in Sources */,
+				965324AF1E78077F00242946 /* triangulate.cpp in Sources */,
+				965324B01E78077F00242946 /* steering.cpp in Sources */,
+				965324B11E78077F00242946 /* animation.cpp in Sources */,
+				965324B21E78077F00242946 /* language_config_loop.cpp in Sources */,
+				965324B31E78077F00242946 /* widgets.cpp in Sources */,
+				965324B41E78077F00242946 /* my_load_bitmap.cpp in Sources */,
+				965324B51E78077F00242946 /* weaponized_entity.cpp in Sources */,
+				965324B61E78077F00242946 /* area_loop.cpp in Sources */,
+				965324B71E78077F00242946 /* saveload_loop.cpp in Sources */,
+				965324B81E78077F00242946 /* difficulty_loop.cpp in Sources */,
+				965324B91E78077F00242946 /* npc.cpp in Sources */,
+				965324BA1E78077F00242946 /* engine.cpp in Sources */,
+				965324BB1E78077F00242946 /* input_config_loop.cpp in Sources */,
+				965324BC1E78077F00242946 /* camera.cpp in Sources */,
+				965324BD1E78077F00242946 /* crystal_loop.cpp in Sources */,
+				965324BE1E78077F00242946 /* character_map_entity.cpp in Sources */,
+				965324BF1E78077F00242946 /* collidable.cpp in Sources */,
+				965324C01E78077F00242946 /* config.cpp in Sources */,
+				965324C11E78077F00242946 /* bass_fileprocs.cpp in Sources */,
+				965324C21E78077F00242946 /* follow_character_role.cpp in Sources */,
+				965324C31E78077F00242946 /* battle_entity.cpp in Sources */,
+				965324C41E78077F00242946 /* snprintf.c in Sources */,
+				965324C51E78077F00242946 /* graphics.cpp in Sources */,
+				965324C61E78077F00242946 /* map_entity.cpp in Sources */,
+				965324C71E78077F00242946 /* sound.cpp in Sources */,
+				965324C81E78077F00242946 /* character_role.cpp in Sources */,
+				965324C91E78077F00242946 /* main.cpp in Sources */,
+				965324CA1E78077F00242946 /* well512.c in Sources */,
+				965324CB1E78077F00242946 /* shop_loop.cpp in Sources */,
+				965324CC1E78077F00242946 /* collision_detection.cpp in Sources */,
+				965324CD1E78077F00242946 /* shaders.cpp in Sources */,
+				965324CE1E78077F00242946 /* direct3d.cpp in Sources */,
+				965324CF1E78077F00242946 /* runner_loop.cpp in Sources */,
+				965324D01E78077F00242946 /* atlas.cpp in Sources */,
+				965324D11E78077F00242946 /* settings_loop.cpp in Sources */,
+				965324D21E78077F00242946 /* whack_a_skunk_loop.cpp in Sources */,
+				965324D31E78077F00242946 /* cpa.cpp in Sources */,
+				965324D41E78077F00242946 /* wander_character_role.cpp in Sources */,
+				965324D51E78077F00242946 /* resource_manager.cpp in Sources */,
+				965324D61E78077F00242946 /* enemy_avatar_wander_character_role.cpp in Sources */,
+				965324D71E78077F00242946 /* battle_ai.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96BD8DC619AFE7CA001BDCE2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -569,6 +828,91 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		965324F11E78077F00242946 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Trent Gamblin (5923J6TNDK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZCLK6CUZ99;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = /Users/trent/code/libs/ios/lib;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"GAMECENTER=1",
+					ALLEGRO_UNSTABLE,
+					ADMOB,
+				);
+				GCC_UNROLL_LOOPS = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/trent/code/crystal-picnic/include",
+					/Users/trent/code/libs/ios/include,
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/trent/code/crystal-picnic/libs/atlas/src",
+					"/Users/trent/code/crystal-picnic/libs/wrap/src",
+				);
+				INFOPLIST_FILE = "Crystal Picnic copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/ios/lib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nooskewl.crystalpicnicfree;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 arm64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		965324F21E78077F00242946 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_USE_OPTIMIZATION_PROFILE = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nooskewl (ZCLK6CUZ99)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZCLK6CUZ99;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = /Users/trent/code/libs/ios/lib;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"GAMECENTER=1",
+					ALLEGRO_UNSTABLE,
+					ADMOB,
+				);
+				GCC_UNROLL_LOOPS = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/trent/code/crystal-picnic/include",
+					/Users/trent/code/libs/ios/include,
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"/Users/trent/code/crystal-picnic/libs/atlas/src",
+					"/Users/trent/code/crystal-picnic/libs/wrap/src",
+				);
+				INFOPLIST_FILE = "Crystal Picnic copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/ios/lib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nooskewl.crystalpicnicfree;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 arm64";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		96BD8DF419AFE7CA001BDCE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -647,13 +991,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Trent Gamblin (5923J6TNDK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Trent Gamblin (5923J6TNDK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZCLK6CUZ99;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
@@ -673,9 +1017,10 @@
 				INFOPLIST_FILE = "Crystal Picnic/Crystal Picnic-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/ios/lib;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nooskewl.crystalpicnic-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c42dd53b-6448-4ab2-b81c-ed7194895c2e";
-				PROVISIONING_PROFILE_SPECIFIER = "Crystal Picnic Dev";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
@@ -686,13 +1031,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_USE_OPTIMIZATION_PROFILE = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nooskewl (ZCLK6CUZ99)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nooskewl (ZCLK6CUZ99)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZCLK6CUZ99;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
@@ -713,9 +1058,10 @@
 				INFOPLIST_FILE = "Crystal Picnic/Crystal Picnic-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/ios/lib;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nooskewl.crystalpicnic-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b66901b-2aaf-4475-aacd-97d19debb8f6";
-				PROVISIONING_PROFILE_SPECIFIER = "Crystal Picnic iOS";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
@@ -725,6 +1071,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		965324F01E78077F00242946 /* Build configuration list for PBXNativeTarget "Crystal Picnic Free" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				965324F11E78077F00242946 /* Debug */,
+				965324F21E78077F00242946 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		96BD8DC519AFE7CA001BDCE2 /* Build configuration list for PBXProject "Crystal Picnic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

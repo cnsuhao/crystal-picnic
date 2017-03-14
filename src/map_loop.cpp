@@ -5,8 +5,12 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 
-#ifdef ADMOB
+#ifdef ADMOB && defined ALLEGRO_ANDROID
 #include "android.h"
+#endif
+
+#if defined ADMOB && defined ALLEGRO_IPHONE
+#include "apple.h"
 #endif
 
 #include "area_loop.h"

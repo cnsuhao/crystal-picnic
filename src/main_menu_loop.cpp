@@ -9,6 +9,10 @@
 #include <allegro5/allegro_direct3d.h>
 #endif
 
+#if defined ADMOB && defined ALLEGRO_IPHONE
+#include "apple.h"
+#endif
+
 #include "animation.h"
 #include "animation_set.h"
 #include "bitmap.h"

@@ -323,6 +323,7 @@ const char *get_android_language()
 	_al_android_get_jnienv()->DeleteLocalRef(s);
 
 	std::string str = buf;
+	str = str.substr(0, 2);
 
 	// convert to steam style since that was the first one we did
 	if (str == "de") {

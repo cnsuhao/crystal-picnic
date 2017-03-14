@@ -20,6 +20,10 @@
 #include "android.h"
 #endif
 
+#if defined ALLEGRO_IPHONE
+#include "apple.h"
+#endif
+
 #include <tgui2.hpp>
 
 ALLEGRO_DEBUG_CHANNEL("CrystalPicnic")
@@ -546,6 +550,10 @@ void Engine::setup_screen_size()
 
 bool Engine::init_allegro()
 {
+#ifdef ADMOB && defined ALLEGRO_IPHONE
+	initAdmob();
+#endif
+
 	bool hide_mouse = false;
 
 	al_init();
@@ -576,6 +584,8 @@ bool Engine::init_allegro()
 		std::string language = get_steam_language();
 #elif defined ALLEGRO_ANDROID
 		std::string language = get_android_language();
+#elif defined ALLEGRO_IPHONE || defined ALLEGRO_MACOSX
+		std::string language = get_apple_language();
 #else
 		std::string language = "English";
 #endif
