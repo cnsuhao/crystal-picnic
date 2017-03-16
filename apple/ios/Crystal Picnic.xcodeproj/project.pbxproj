@@ -120,6 +120,7 @@
 		968AA3001CFDF27A008F0B32 /* gamecenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 968AA2FF1CFDF27A008F0B32 /* gamecenter.mm */; };
 		968AA3021CFE0C2A008F0B32 /* iPhone6LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968AA3011CFE0C2A008F0B32 /* iPhone6LaunchScreen.storyboard */; };
 		96919F561D001752001A2702 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96919F551D001752001A2702 /* GameKit.framework */; };
+		96BC70C21E783FBE001A1DFB /* Crystal Picnic Zero-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96BC70C11E783FBE001A1DFB /* Crystal Picnic Zero-Info.plist */; };
 		96BD8DCE19AFE7CA001BDCE2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD8DCD19AFE7CA001BDCE2 /* Foundation.framework */; };
 		96BD8DD019AFE7CA001BDCE2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD8DCF19AFE7CA001BDCE2 /* CoreGraphics.framework */; };
 		96BD8DD219AFE7CA001BDCE2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BD8DD119AFE7CA001BDCE2 /* UIKit.framework */; };
@@ -233,8 +234,7 @@
 
 /* Begin PBXFileReference section */
 		962E88C81A33EFAA0004DE04 /* difficulty_loop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = difficulty_loop.cpp; path = ../../src/difficulty_loop.cpp; sourceTree = "<group>"; };
-		965324F31E78077F00242946 /* Crystal Picnic Free.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crystal Picnic Free.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		965324F41E78077F00242946 /* Crystal Picnic copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Crystal Picnic copy-Info.plist"; path = "/Users/trent/code/crystal-picnic/apple/ios/Crystal Picnic copy-Info.plist"; sourceTree = "<absolute>"; };
+		965324F31E78077F00242946 /* Crystal Picnic Zero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crystal Picnic Zero.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965324F51E78081300242946 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = ../../../libs/ios/lib/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		9676F4781D5D54A1005867C5 /* atlas_accessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = atlas_accessor.cpp; path = ../../src/atlas_accessor.cpp; sourceTree = "<group>"; };
 		9676F4791D5D54A1005867C5 /* atlas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = atlas.cpp; path = ../../src/atlas.cpp; sourceTree = "<group>"; };
@@ -248,6 +248,7 @@
 		968AA2FF1CFDF27A008F0B32 /* gamecenter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = gamecenter.mm; path = ../../src/gamecenter.mm; sourceTree = "<group>"; };
 		968AA3011CFE0C2A008F0B32 /* iPhone6LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone6LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96919F551D001752001A2702 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		96BC70C11E783FBE001A1DFB /* Crystal Picnic Zero-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Crystal Picnic Zero-Info.plist"; sourceTree = "<group>"; };
 		96BD8DCA19AFE7CA001BDCE2 /* Crystal Picnic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crystal Picnic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96BD8DCD19AFE7CA001BDCE2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96BD8DCF19AFE7CA001BDCE2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -401,6 +402,7 @@
 		96BD8DC119AFE7CA001BDCE2 = {
 			isa = PBXGroup;
 			children = (
+				96BC70C11E783FBE001A1DFB /* Crystal Picnic Zero-Info.plist */,
 				9676F4781D5D54A1005867C5 /* atlas_accessor.cpp */,
 				9676F4791D5D54A1005867C5 /* atlas.cpp */,
 				9676F47A1D5D54A1005867C5 /* dirty.cpp */,
@@ -485,7 +487,6 @@
 				96BD8DCC19AFE7CA001BDCE2 /* Frameworks */,
 				96BD8DCB19AFE7CA001BDCE2 /* Products */,
 				96F62FB91D31070500420563 /* OptimizationProfiles */,
-				965324F41E78077F00242946 /* Crystal Picnic copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -493,7 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				96BD8DCA19AFE7CA001BDCE2 /* Crystal Picnic.app */,
-				965324F31E78077F00242946 /* Crystal Picnic Free.app */,
+				965324F31E78077F00242946 /* Crystal Picnic Zero.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -556,9 +557,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		965324881E78077F00242946 /* Crystal Picnic Free */ = {
+		965324881E78077F00242946 /* Crystal Picnic Zero */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 965324F01E78077F00242946 /* Build configuration list for PBXNativeTarget "Crystal Picnic Free" */;
+			buildConfigurationList = 965324F01E78077F00242946 /* Build configuration list for PBXNativeTarget "Crystal Picnic Zero" */;
 			buildPhases = (
 				965324891E78077F00242946 /* Sources */,
 				965324D81E78077F00242946 /* Frameworks */,
@@ -569,9 +570,9 @@
 			);
 			dependencies = (
 			);
-			name = "Crystal Picnic Free";
+			name = "Crystal Picnic Zero";
 			productName = "Crystal Picnic";
-			productReference = 965324F31E78077F00242946 /* Crystal Picnic Free.app */;
+			productReference = 965324F31E78077F00242946 /* Crystal Picnic Zero.app */;
 			productType = "com.apple.product-type.application";
 		};
 		96BD8DC919AFE7CA001BDCE2 /* Crystal Picnic */ = {
@@ -628,7 +629,7 @@
 			projectRoot = "";
 			targets = (
 				96BD8DC919AFE7CA001BDCE2 /* Crystal Picnic */,
-				965324881E78077F00242946 /* Crystal Picnic Free */,
+				965324881E78077F00242946 /* Crystal Picnic Zero */,
 			);
 		};
 /* End PBXProject section */
@@ -647,6 +648,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BC70C21E783FBE001A1DFB /* Crystal Picnic Zero-Info.plist in Resources */,
 				96BD8DE019AFE7CA001BDCE2 /* Images.xcassets in Resources */,
 				968AA3021CFE0C2A008F0B32 /* iPhone6LaunchScreen.storyboard in Resources */,
 			);
@@ -857,7 +859,7 @@
 					"/Users/trent/code/crystal-picnic/libs/atlas/src",
 					"/Users/trent/code/crystal-picnic/libs/wrap/src",
 				);
-				INFOPLIST_FILE = "Crystal Picnic copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Crystal Picnic Zero-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/ios/lib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nooskewl.crystalpicnicfree;
@@ -900,7 +902,7 @@
 					"/Users/trent/code/crystal-picnic/libs/atlas/src",
 					"/Users/trent/code/crystal-picnic/libs/wrap/src",
 				);
-				INFOPLIST_FILE = "Crystal Picnic copy-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Crystal Picnic Zero-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/ios/lib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nooskewl.crystalpicnicfree;
@@ -1071,7 +1073,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		965324F01E78077F00242946 /* Build configuration list for PBXNativeTarget "Crystal Picnic Free" */ = {
+		965324F01E78077F00242946 /* Build configuration list for PBXNativeTarget "Crystal Picnic Zero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				965324F11E78077F00242946 /* Debug */,
