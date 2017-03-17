@@ -24,6 +24,10 @@
 #include "apple.h"
 #endif
 
+#ifdef ALLEGRO_UNIX
+#include <allegro5/allegro_x.h>
+#endif
+
 #include <tgui2.hpp>
 
 ALLEGRO_DEBUG_CHANNEL("CrystalPicnic")
@@ -125,7 +129,7 @@ bool gamepadConnected()
 }
 #endif
 
-#ifdef __linux__
+#ifdef ALLEGRO_UNIX
 #include <langinfo.h>
 
 std::string get_linux_language()
@@ -649,7 +653,7 @@ bool Engine::init_allegro()
 		std::string language = get_apple_language();
 #elif defined ALLEGRO_WINDOWS
 		std::string language = get_windows_language();
-#elif defined __linux__
+#elif defined ALLEGRO_UNIX
 		std::string language = get_linux_language();
 #else
 		std::string language = "English";
@@ -719,6 +723,15 @@ bool Engine::init_allegro()
 	al_init_ttf_addon();
 
 	ALLEGRO_DEBUG("Addons initialized");
+
+#ifdef ALLEGRO_UNIX
+	int flags = al_get_new_bitmap_flags();
+	al_set_new_bitmap_flags(flags | ALLEGRO_MEMORY_BITMAP);
+	Wrap::Bitmap *icon_tmp = Wrap::load_bitmap("misc_graphics/icon.png");
+	al_x_set_initial_icon(icon_tmp->bitmap);
+	Wrap::destroy_bitmap(icon_tmp);
+	al_set_new_bitmap_flags(flags);
+#endif
 
 	if (cfg.vsync) {
 		al_set_new_display_option(ALLEGRO_VSYNC, 1, ALLEGRO_SUGGEST);
@@ -802,7 +815,7 @@ bool Engine::init_allegro()
 
 	General::log_message("OpenGL: " + General::itos(cfg.force_opengl));
 
-#if !defined ALLEGRO_IPHONE && !defined ALLEGRO_ANDROID && !defined ALLEGRO_RASPBERRYPI
+#if !defined ALLEGRO_IPHONE && !defined ALLEGRO_ANDROID && !defined ALLEGRO_RASPBERRYPI && !defined ALLEGRO_UNIX
 	// With OpenGL driver, crashes if icon is not a memory bitmap
 	int flags = al_get_new_bitmap_flags();
 	al_set_new_bitmap_flags(flags | ALLEGRO_MEMORY_BITMAP);

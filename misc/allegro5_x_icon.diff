@@ -1,0 +1,320 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index de21b28..c47d280 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -635,6 +635,13 @@ if(SUPPORT_X11)
+         message(FATAL_ERROR "X11 support requires Xcursor library.")
+     endif(CAN_XCURSOR)
+ 
++    check_library_exists(Xpm XpmCreatePixmapFromData "" CAN_XPM)
++    if(CAN_XPM)
++        set(ALLEGRO_XWINDOWS_WITH_XPM 1)
++        find_library(XPM_LIB "Xpm")
++        list(APPEND X11_LIBRARIES "${XPM_LIB}")
++    endif(CAN_XPM)
++
+     check_include_file("X11/extensions/XInput2.h" CAN_XINPUT2)
+     run_c_compile_test("
+         #include <X11/extensions/XInput2.h>
+diff --git a/docs/src/refman/platform.txt b/docs/src/refman/platform.txt
+index e802589..60e34b8 100644
+--- a/docs/src/refman/platform.txt
++++ b/docs/src/refman/platform.txt
+@@ -169,3 +169,12 @@ These functions are declared in the following header file:
+ Retrieves the XID associated with the Allegro display.
+ 
+ Since: 5.1.12
++
++### API: al_x_set_initial_icon
++
++On some window managers (notably Ubuntu's Unity) al_set_display_icon
++doesn't work and you need to use a .desktop file. But with this function
++you can set an icon before calling al_create_display. This works
++by setting the icon before XMapWindow.
++
++Since: 5.2.1.2
+diff --git a/examples/ex_icon2.c b/examples/ex_icon2.c
+index 9d14851..5658ed3 100644
+--- a/examples/ex_icon2.c
++++ b/examples/ex_icon2.c
+@@ -9,6 +9,10 @@
+ #include <allegro5/allegro.h>
+ #include "allegro5/allegro_image.h"
+ 
++#ifdef ALLEGRO_UNIX
++#include <allegro5/allegro_x.h>
++#endif
++
+ #include "common.c"
+ 
+ #define NUM_ICONS 2
+@@ -30,6 +34,16 @@ int main(int argc, char **argv)
+    al_init_image_addon();
+    init_platform_specific();
+ 
++   /* First icon 16x16: Read from file. */
++   icons[0] = al_load_bitmap("data/cursor.tga");
++   if (!icons[0]) {
++      abort_example("icons.tga not found\n");
++   }
++
++#ifdef ALLEGRO_UNIX
++   al_x_set_initial_icon(icons[0]);
++#endif
++
+    display = al_create_display(320, 200);
+    if (!display) {
+       abort_example("Error creating display\n");
+@@ -37,12 +51,6 @@ int main(int argc, char **argv)
+    al_clear_to_color(al_map_rgb_f(0, 0, 0));
+    al_flip_display();
+ 
+-   /* First icon 16x16: Read from file. */
+-   icons[0] = al_load_bitmap("data/cursor.tga");
+-   if (!icons[0]) {
+-      abort_example("icons.tga not found\n");
+-   }
+-
+    /* Second icon 32x32: Create it. */
+    al_set_new_bitmap_flags(ALLEGRO_MEMORY_BITMAP);
+    icons[1] = al_create_bitmap(32, 32);
+diff --git a/include/allegro5/allegro_x.h b/include/allegro5/allegro_x.h
+index abc5d89..78ca2f8 100644
+--- a/include/allegro5/allegro_x.h
++++ b/include/allegro5/allegro_x.h
+@@ -30,6 +30,7 @@
+  *  Public X-related API
+  */
+ AL_FUNC(XID, al_get_x_window_id, (ALLEGRO_DISPLAY *display));
++AL_FUNC(bool, al_x_set_initial_icon, (ALLEGRO_BITMAP *bitmap));
+ 
+ 
+ #ifdef __cplusplus
+diff --git a/include/allegro5/platform/alplatf.h.cmake b/include/allegro5/platform/alplatf.h.cmake
+index ef65413..8790348 100644
+--- a/include/allegro5/platform/alplatf.h.cmake
++++ b/include/allegro5/platform/alplatf.h.cmake
+@@ -103,6 +103,9 @@
+ /* Define if XInput 2.2 X11 extension is supported. */
+ #cmakedefine ALLEGRO_XWINDOWS_WITH_XINPUT2
+ 
++/* Define if Xpm is found. Useful on Ubuntu Unity to set icon. */
++#cmakedefine ALLEGRO_XWINDOWS_WITH_XPM
++
+ /*---------------------------------------------------------------------------*/
+ 
+ /* Define if target platform is linux. */
+diff --git a/src/x/xdisplay.c b/src/x/xdisplay.c
+index f781a59..c62981c 100644
+--- a/src/x/xdisplay.c
++++ b/src/x/xdisplay.c
+@@ -18,6 +18,12 @@
+ #include <X11/extensions/XInput2.h>
+ #endif
+ 
++#ifdef ALLEGRO_XWINDOWS_WITH_XPM
++#include <X11/xpm.h>
++#endif
++
++#include "xicon.h"
++
+ ALLEGRO_DEBUG_CHANNEL("display")
+ 
+ static ALLEGRO_DISPLAY_INTERFACE xdpy_vt;
+@@ -492,6 +498,21 @@ LateError:
+    return NULL;
+ }
+ 
++static void set_initial_icon(Display *x11display, Window window)
++{
++   XWMHints *wm_hints;
++
++   if (x11_xpm == NULL)
++      return;
++
++   wm_hints = XAllocWMHints();
++
++   wm_hints->flags |= IconPixmapHint | IconMaskHint;
++   XpmCreatePixmapFromData(x11display, window, x11_xpm,
++      &wm_hints->icon_pixmap, &wm_hints->icon_mask, NULL);
++
++   XSetWMHints(x11display, window, wm_hints);
++}
+ 
+ static bool xdpy_create_display_hook_default(ALLEGRO_DISPLAY *display,
+    int w, int h)
+@@ -501,6 +522,8 @@ static bool xdpy_create_display_hook_default(ALLEGRO_DISPLAY *display,
+    (void)w;
+    (void)h;
+ 
++   set_initial_icon(system->x11display, d->window);
++
+    XLockDisplay(system->x11display);
+ 
+    XMapWindow(system->x11display, d->window);
+diff --git a/src/x/xsystem.c b/src/x/xsystem.c
+index d283030..8500121 100644
+--- a/src/x/xsystem.c
++++ b/src/x/xsystem.c
+@@ -17,10 +17,150 @@ extern int _Xdebug; /* part of Xlib */
+ #include "allegro5/platform/aintunix.h"
+ #include "allegro5/platform/aintxglx.h"
+ 
++#include "allegro5/allegro_x.h"
++
++#include "xicon.h"
++
+ ALLEGRO_DEBUG_CHANNEL("system")
+ 
+ static ALLEGRO_SYSTEM_INTERFACE *xglx_vt;
+ 
++static bool x11_xpm_set = false;
++static int x11_xpm_rows = 0;
++char **x11_xpm = NULL;
++
++#ifdef ALLEGRO_XWINDOWS_WITH_XPM
++#include <stdio.h>
++#include "icon.xpm"
++
++static char **bitmap_to_xpm(ALLEGRO_BITMAP *bitmap, int *nrows_ret)
++{
++   _AL_VECTOR v;
++   int w, h, x, y;
++   int ncolors, nrows;
++   char **xpm;
++   char buf[100];
++   int i;
++
++   ALLEGRO_LOCKED_REGION *lr = al_lock_bitmap(bitmap, ALLEGRO_PIXEL_FORMAT_ABGR_8888_LE, ALLEGRO_LOCK_READONLY);
++   if (lr == NULL)
++      return NULL;
++
++   _al_vector_init(&v, sizeof(uint32_t));
++
++   w = al_get_bitmap_width(bitmap);
++   h = al_get_bitmap_height(bitmap);
++
++   for (y = 0; y < h; y++) {
++      for (x = 0; x < w; x++) {
++         uint32_t c = *((uint32_t *)(((char *)lr->data) + lr->pitch * y + x * 4));
++         int alpha = (c >> 24) & 0xff;
++         if (alpha != 255) {
++                 c = 0;
++         }
++         int sz = _al_vector_size(&v);
++         bool found = false;
++         for (i = 0; i < sz; i++) {
++            if ((uint32_t)(*((uint32_t **)_al_vector_ref(&v, i))) == c) {
++               found = true;
++               break;
++            }
++         }
++         if (found == false) {
++            uint32_t **p = _al_vector_alloc_back(&v);
++            *p = (uint32_t *)c;
++         }
++      }
++   }
++
++   ncolors = _al_vector_size(&v);
++   nrows = 2 + ncolors + h;
++
++   xpm = malloc(nrows * sizeof(char *));
++   if (xpm == NULL)
++      return NULL;
++
++   snprintf(buf, 100, "%d %d %d 8", w, h, ncolors + 1);
++
++   xpm[0] = strdup(buf);
++
++   xpm[1] = strdup("00000000\tc None");
++
++   for (i = 0; i < ncolors; i++) {
++        uint32_t c = (uint32_t)(*((uint32_t **)_al_vector_ref(&v, i)));
++        int r = c & 0xff;
++        int g = (c >> 8) & 0xff;
++        int b = (c >> 16) & 0xff;
++        snprintf(buf, 100, "%08x\tc #%02x%02x%02x", i+1, r, g, b);
++        xpm[i+2] = strdup(buf);
++   }
++
++   for (y = 0; y < h; y++) {
++        int row = y + 2 + ncolors;
++        xpm[row] = malloc(8 * w + 1);
++        xpm[row][8 * w] = 0;
++        uint32_t *p = (uint32_t *)(((char *)lr->data) + lr->pitch * y);
++        for (x = 0; x < w; x++) {
++                uint32_t pixel = *p;
++                int alpha = (pixel >> 24) & 0xff;
++                if (alpha != 255) {
++                   snprintf(buf, 100, "%s", "00000000");
++                }
++                else {
++                   for (i = 0; i < (int)_al_vector_size(&v); i++) {
++                      uint32_t pixel2 = (uint32_t)(*((uint32_t **)_al_vector_ref(&v, i)));
++                      if (pixel == pixel2)
++                         break;
++                   }
++                   snprintf(buf, 100, "%08x", i+1);
++                }
++                for (i = 0; i < 8; i++) {
++                        xpm[row][8*x+i] = buf[i];
++                }
++                p++;
++        }
++   }
++
++   _al_vector_free(&v);
++
++   *nrows_ret = nrows;
++
++   al_unlock_bitmap(bitmap);
++
++   // debug
++   /*
++   for (i = 0; i < nrows; i++) {
++      printf("%s\n", xpm[i]);
++   }
++   */
++
++   return xpm;
++}
++#endif
++
++/* Function: al_x_set_initial_icon
++ */
++bool al_x_set_initial_icon(ALLEGRO_BITMAP *bitmap)
++{
++#ifdef ALLEGRO_XWINDOWS_WITH_XPM
++   if (x11_xpm_set) {
++      int i;
++      for (i = 0; i < x11_xpm_rows; i++) {
++         free(x11_xpm[i]);
++      }
++      free(x11_xpm);
++      x11_xpm_set = false;
++   }
++   x11_xpm = bitmap_to_xpm(bitmap, &x11_xpm_rows);
++   if (x11_xpm == NULL)
++      return false;
++   x11_xpm_set = true;
++   return true;
++#else
++   return false;
++#endif
++}
++
+ static ALLEGRO_SYSTEM *xglx_initialize(int flags)
+ {
+    Display *x11display;
+@@ -99,6 +239,10 @@ static ALLEGRO_SYSTEM *xglx_initialize(int flags)
+       }
+    }
+ 
++#ifdef ALLEGRO_XWINDOWS_WITH_XPM
++   x11_xpm = icon_xpm;
++#endif
++
+    return &s->system;
+ }
+ 

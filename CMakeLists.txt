@@ -325,7 +325,7 @@ else()
 			tgui2-static
 			my_load_bitmap
 			${ALLEGRO_LIBRARIES}
-			Xcursor Xi Xinerama Xrandr GLU GL SM ICE X11 Xext
+			Xcursor Xi Xinerama Xrandr GLU GL SM ICE X11 Xext Xpm
 			${LUA_LIBRARY}
 			${PNG_LIBRARY}
 			${FREETYPE_LIBRARY}
