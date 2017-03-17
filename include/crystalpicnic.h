@@ -1,10 +1,6 @@
 #ifndef CRYSTALPICNIC_H
 #define CRYSTALPICNIC_H
 
-#ifdef _WIN32
-#define _WIN32_IE 0x400
-#endif
-
 #include "error.h"
 #include "general_types.h"
 #include "main.h"
