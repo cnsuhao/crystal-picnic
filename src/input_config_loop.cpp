@@ -131,7 +131,7 @@ bool Input_Config_Loop::handle_event(ALLEGRO_EVENT *event)
 			getting_key = -1;
 		}
 		else if (event->type == ALLEGRO_EVENT_KEY_DOWN) {
-			if (event->keyboard.keycode == ALLEGRO_KEY_ESCAPE || event->keyboard.keycode == ALLEGRO_KEY_ENTER || event->keyboard.keycode == ALLEGRO_KEY_PGUP || event->keyboard.keycode == ALLEGRO_KEY_PGDN) {
+			if (/*event->keyboard.keycode == ALLEGRO_KEY_ESCAPE ||*/ event->keyboard.keycode == ALLEGRO_KEY_ENTER || event->keyboard.keycode == ALLEGRO_KEY_PGUP || event->keyboard.keycode == ALLEGRO_KEY_PGDN) {
 				// Do nothing (stop further actions below)
 			}
 			else if (event->keyboard.keycode == ALLEGRO_KEY_BACKSPACE) {
@@ -149,10 +149,11 @@ bool Input_Config_Loop::handle_event(ALLEGRO_EVENT *event)
 			dont_process_dpad_events = false;
 		}
 		else if (event->type == ALLEGRO_EVENT_KEY_DOWN) {
+			/*
 			if (event->keyboard.keycode == ALLEGRO_KEY_ESCAPE) {
 				// Do nothing (stop further actions below)
 			}
-			else if (event->keyboard.keycode == ALLEGRO_KEY_BACKSPACE) {
+			else*/ if (event->keyboard.keycode == ALLEGRO_KEY_BACKSPACE) {
 				gamepad_buttons[getting_button] = -1;
 			}
 			getting_button = -1;
@@ -364,7 +365,7 @@ void Input_Config_Loop::draw()
 	if (getting_key >= 0 || getting_button >= 0) {
 		int th = General::get_font_line_height(General::FONT_LIGHT);
 		int w = 200;
-		int h = 5*th+4;
+		int h = 4*th+4;
 
 		al_draw_filled_rectangle(0, 0, cfg.screen_w, cfg.screen_h, al_map_rgba_f(0.0f, 0.0f, 0.0f, 0.5f));
 
@@ -387,8 +388,8 @@ void Input_Config_Loop::draw()
 		bool ttf_was_quick = Graphics::ttf_is_quick();
 		Graphics::ttf_quick(true);
 		General::draw_text(keyboard ? t("PRESS_A_KEY") : t("PRESS_A_BUTTON"), al_map_rgb(0x00, 0x00, 0x00), cfg.screen_w/2, y+th, ALLEGRO_ALIGN_CENTER);
-		General::draw_text(t("ESC_CANCEL"), al_map_rgb(0x00, 0x00, 0x00), cfg.screen_w/2, y+th*2, ALLEGRO_ALIGN_CENTER);
-		General::draw_text(t("BACKSPACE_CLEAR"), al_map_rgb(0x00, 0x00, 0x00), cfg.screen_w/2, y+th*3, ALLEGRO_ALIGN_CENTER);
+		//General::draw_text(t("ESC_CANCEL"), al_map_rgb(0x00, 0x00, 0x00), cfg.screen_w/2, y+th*2, ALLEGRO_ALIGN_CENTER);
+		General::draw_text(t("BACKSPACE_CLEAR"), al_map_rgb(0x00, 0x00, 0x00), cfg.screen_w/2, y+th*2, ALLEGRO_ALIGN_CENTER);
 		Graphics::ttf_quick(ttf_was_quick);
 	}
 }
