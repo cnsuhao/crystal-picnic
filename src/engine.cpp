@@ -125,6 +125,36 @@ bool gamepadConnected()
 }
 #endif
 
+#ifdef __linux__
+#include <langinfo.h>
+
+std::string get_linux_language()
+{
+	std::string str;
+	if (getenv("LANG")) {
+		str = getenv("LANG");
+	}
+	else {
+		str = nl_langinfo(_NL_IDENTIFICATION_LANGUAGE);
+	}
+
+	str = str.substr(0, 2);
+
+	// convert to steam style since that was the first one we did
+	if (str == "de") {
+		str = "german";
+	}
+	else if (str == "fr") {
+		str = "french";
+	}
+	else {
+		str = "english";
+	}
+
+	return str;
+}
+#endif
+
 static void do_modal(
 	ALLEGRO_EVENT_QUEUE *queue,
 	ALLEGRO_COLOR clear_color, // if alpha == 1 then don't use background image
@@ -619,6 +649,8 @@ bool Engine::init_allegro()
 		std::string language = get_apple_language();
 #elif defined ALLEGRO_WINDOWS
 		std::string language = get_windows_language();
+#elif defined __linux__
+		std::string language = get_linux_language();
 #else
 		std::string language = "English";
 #endif
