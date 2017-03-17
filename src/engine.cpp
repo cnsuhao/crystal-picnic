@@ -103,33 +103,6 @@ std::string get_windows_language()
 	) {
 		return "german";
 	}
-	else if (l == 1032) {
-		return "greek";
-	}
-	else if (
-		l == 1034 ||
-		l == 2058 ||
-		l == 3082 ||
-		l == 4106 ||
-		l == 5130 ||
-		l == 6154 ||
-		l == 7178 ||
-		l == 8202 ||
-		l == 9226 ||
-		l == 10250 ||
-		l == 11274 ||
-		l == 12298 ||
-		l == 13322 ||
-		l == 14346 ||
-		l == 15370 ||
-		l == 16394 ||
-		l == 17418 ||
-		l == 18442 ||
-		l == 19466 ||
-		l == 20490
-	) {
-		return "spanish";
-	}
 	else if (
 		l == 1036 ||
 		l == 2060 ||
@@ -138,24 +111,6 @@ std::string get_windows_language()
 		l == 5132
 	) {
 		return "french";
-	}
-	else if (
-		l == 1043 ||
-		l == 2067
-	) {
-		return "dutch";
-	}
-	else if (l == 1045) {
-		return "polish";
-	}
-	else if (l == 1046) {
-		return "brazilian";
-	}
-	else if (l == 2070) {
-		return "portuguese";
-	}
-	else if (l == 1049) {
-		return "russian";
 	}
 	else {
 		return "english";
