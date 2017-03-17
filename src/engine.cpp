@@ -727,7 +727,14 @@ bool Engine::init_allegro()
 #ifdef ALLEGRO_UNIX
 	int flags = al_get_new_bitmap_flags();
 	al_set_new_bitmap_flags(flags | ALLEGRO_MEMORY_BITMAP);
-	Wrap::Bitmap *icon_tmp = Wrap::load_bitmap("misc_graphics/icon256.png");
+	Wrap::Bitmap *icon_tmp;
+	// Workaround for IceWM which doesn't like 256x256 icons
+	if (getenv("DESKTOP_SESSION") && strcasestr(getenv("DESKTOP_SESSION"), "IceWM") != NULL) {
+		icon_tmp = Wrap::load_bitmap("misc_graphics/icon.png");
+	}
+	else {
+		icon_tmp = Wrap::load_bitmap("misc_graphics/icon256.png");
+	}
 	al_x_set_initial_icon(icon_tmp->bitmap);
 	Wrap::destroy_bitmap(icon_tmp);
 	al_set_new_bitmap_flags(flags);
