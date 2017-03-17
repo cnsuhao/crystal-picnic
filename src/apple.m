@@ -1,4 +1,4 @@
-#import <Foundation/NSObjCRuntime.h>
+#import <Foundation/Foundation.h>
 
 void LOG(const char *s)
 {

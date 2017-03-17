@@ -20,7 +20,7 @@
 #include "android.h"
 #endif
 
-#if defined ALLEGRO_IPHONE
+#if defined ALLEGRO_IPHONE || defined ALLEGRO_MACOSX
 #include "apple.h"
 #endif
 

@@ -1,6 +1,7 @@
 {
 	"title": "Crystal Picnic Demo",
 	"icon-size": 80,
+	"icon": "icon.icns",
 	"background": "bg.png",
 	"contents": [
 		{ "x": 120, "y": 100, "type": "file", "path": "Crystal Picnic Demo.app" },
