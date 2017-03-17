@@ -87,6 +87,82 @@ static Animation_Set *coin0;
 static Animation_Set *coin1;
 static Animation_Set *coin2;
 
+#ifdef ALLEGRO_WINDOWS
+std::string get_windows_language()
+{
+	LONG l = GetUserDefaultLCID();
+
+	// returns names in Steam format
+
+	if (
+		l == 1031 ||
+		l == 2055 ||
+		l == 3079 ||
+		l == 4103 ||
+		l == 5127
+	) {
+		return "german";
+	}
+	else if (l == 1032) {
+		return "greek";
+	}
+	else if (
+		l == 1034 ||
+		l == 2058 ||
+		l == 3082 ||
+		l == 4106 ||
+		l == 5130 ||
+		l == 6154 ||
+		l == 7178 ||
+		l == 8202 ||
+		l == 9226 ||
+		l == 10250 ||
+		l == 11274 ||
+		l == 12298 ||
+		l == 13322 ||
+		l == 14346 ||
+		l == 15370 ||
+		l == 16394 ||
+		l == 17418 ||
+		l == 18442 ||
+		l == 19466 ||
+		l == 20490
+	) {
+		return "spanish";
+	}
+	else if (
+		l == 1036 ||
+		l == 2060 ||
+		l == 3084 ||
+		l == 4108 ||
+		l == 5132
+	) {
+		return "french";
+	}
+	else if (
+		l == 1043 ||
+		l == 2067
+	) {
+		return "dutch";
+	}
+	else if (l == 1045) {
+		return "polish";
+	}
+	else if (l == 1046) {
+		return "brazilian";
+	}
+	else if (l == 2070) {
+		return "portuguese";
+	}
+	else if (l == 1049) {
+		return "russian";
+	}
+	else {
+		return "english";
+	}
+}
+#endif
+
 #ifdef ALLEGRO_IPHONE
 bool gamepadConnected()
 {
@@ -586,6 +662,8 @@ bool Engine::init_allegro()
 		std::string language = get_android_language();
 #elif defined ALLEGRO_IPHONE || defined ALLEGRO_MACOSX
 		std::string language = get_apple_language();
+#elif defined ALLEGRO_WINDOWS
+		std::string language = get_windows_language();
 #else
 		std::string language = "English";
 #endif
