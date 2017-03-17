@@ -5,7 +5,7 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_primitives.h>
 
-#ifdef ADMOB && defined ALLEGRO_ANDROID
+#if defined ADMOB && defined ALLEGRO_ANDROID
 #include "android.h"
 #endif
 
