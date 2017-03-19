@@ -20,6 +20,7 @@ const char *get_android_language();
 
 #ifdef ADMOB
 void showAd();
+bool connected_to_internet();
 #endif
 
 #ifdef __cplusplus

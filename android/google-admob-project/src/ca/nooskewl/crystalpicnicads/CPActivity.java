@@ -1,31 +1,12 @@
 package ca.nooskewl.crystalpicnicads;
 
 import org.liballeg.android.AllegroActivity;
-import android.net.Uri;
 import android.content.Intent;
-import android.text.ClipboardManager;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import java.io.File;
 import android.util.Log;
-import android.app.ActivityManager;
 import android.os.Bundle;
-import org.json.*;
-import java.security.*;
-import java.io.*;
-import javax.crypto.*;
-import javax.crypto.spec.*;
-import android.util.*;
-import java.util.*;
-import java.security.spec.*;
 import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.content.IntentFilter;
-
 import android.app.Dialog;
 import android.support.v4.app.DialogFragment;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -38,10 +19,10 @@ import com.google.android.gms.games.Games;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdListener;
-import android.os.Handler;
-import android.os.Looper;
 import android.content.IntentSender.SendIntentException;
 import android.content.DialogInterface;
+import java.net.InetAddress;
+import java.util.Locale;
 
 public class CPActivity extends AllegroActivity implements ConnectionCallbacks, OnConnectionFailedListener {
 
@@ -55,6 +36,7 @@ public class CPActivity extends AllegroActivity implements ConnectionCallbacks, 
 
 	MyBroadcastReceiver bcr;
 	InterstitialAd mInterstitialAd;
+	boolean connected = true;
 
 	public CPActivity()
 	{
@@ -96,6 +78,28 @@ public class CPActivity extends AllegroActivity implements ConnectionCallbacks, 
 		});
 
 		requestNewInterstitial();
+
+		boolean thread_started = false;
+		do {
+			try {
+				Thread t = new Thread(new Runnable() {
+					public void run() {
+						while (true) {
+							try {
+								connected = InetAddress.getByName("nooskewl.ca").isReachable(30000);
+							}
+							catch (Exception e) {
+								connected = false;
+							}
+						}
+					}
+				});
+				t.start();
+				thread_started = true;
+			}
+			catch (Exception e) {
+			}
+		} while (thread_started == false);
 	}
 
 	public void onResume() {
@@ -293,5 +297,10 @@ public class CPActivity extends AllegroActivity implements ConnectionCallbacks, 
 				}
 			}
 		});
+	}
+
+	public boolean connected_to_internet()
+	{
+		return connected;
 	}
 }

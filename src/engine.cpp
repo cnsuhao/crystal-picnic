@@ -196,6 +196,8 @@ static void do_modal(
 
 		ALLEGRO_EVENT event;
 
+		bool do_acknowledge_resize = false;
+
 		while (!al_event_queue_is_empty(queue)) {
 			al_wait_for_event(queue, &event);
 
@@ -239,6 +241,9 @@ static void do_modal(
 			else if (event.type == ALLEGRO_EVENT_DISPLAY_HALT_DRAWING) {
 				engine->handle_halt(&event);
 			}
+			else if (event.type == ALLEGRO_EVENT_DISPLAY_RESIZE) {
+				do_acknowledge_resize = true;
+			}
 #endif
 
 			if (engine->get_send_tgui_events()) {
@@ -250,6 +255,11 @@ static void do_modal(
 			if (callback(w)) {
 				goto done;
 			}
+		}
+
+		if (do_acknowledge_resize) {
+			al_acknowledge_resize(engine->get_display());
+			do_acknowledge_resize = false;
 		}
 
 		if (!lost && redraw && (!check_draw_callback || check_draw_callback())) {
@@ -844,7 +854,9 @@ bool Engine::init_allegro()
 	halt_mutex = al_create_mutex();
 	halt_cond = al_create_cond();
 
-#ifdef DEMO
+#if defined ADMOB
+	al_set_window_title(display, "Crystal Picnic Unleashed");
+#elif defined DEMO
 	al_set_window_title(display, "Crystal Picnic Demo");
 #else
 	al_set_window_title(display, "Crystal Picnic");
@@ -1886,6 +1898,15 @@ loop_end:
 				loops[i]->init();
 			}
 		}
+
+#ifdef ADMOB
+		while (connected_to_internet() == false) {
+			std::vector<std::string> v;
+			v.push_back(t("PLEASE_CONNECT"));
+			v.push_back(t("TO_THE_INTERNET"));
+			notify(v, &loops);
+		}
+#endif
 	}
 
 #if !defined ALLEGRO_IPHONE && !defined ALLEGRO_ANDROID
