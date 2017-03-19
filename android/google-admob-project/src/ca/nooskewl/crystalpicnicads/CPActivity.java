@@ -91,6 +91,18 @@ public class CPActivity extends AllegroActivity implements ConnectionCallbacks, 
 							catch (Exception e) {
 								connected = false;
 							}
+							int delay;
+							if (connected == true) {
+								delay = 60000;
+							}
+							else {
+								delay = 10000;
+							}
+							try {
+								Thread.sleep(delay);
+							}
+							catch (Exception e) {
+							}
 						}
 					}
 				});
