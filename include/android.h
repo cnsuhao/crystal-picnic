@@ -20,6 +20,7 @@ const char *get_android_language();
 
 #ifdef ADMOB
 void showAd();
+void requestNewInterstitial();
 #endif
 
 #ifdef __cplusplus

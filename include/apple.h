@@ -6,8 +6,8 @@ extern "C" {
 #endif
 
 #ifdef ADMOB
-void initAdmob();
 void showAd();
+void requestNewInterstitial();
 #endif
 
 const char *get_apple_language();

@@ -212,6 +212,7 @@ void create_network_thread()
 			}
 		}
 	}
+	requestNewInterstitial();
 }
 
 void destroy_network_thread()
@@ -716,7 +717,7 @@ void Engine::setup_screen_size()
 bool Engine::init_allegro()
 {
 #if defined ADMOB && defined ALLEGRO_IPHONE
-	initAdmob();
+	requestNewInterstitial();
 #endif
 
 	bool hide_mouse = false;
@@ -3553,7 +3554,7 @@ static bool ok_callback(tgui::TGUIWidget *widget)
 void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_to_draw, bool is_network_test, bool first_stage)
 {
 	std::vector<std::string> new_texts;
-	if (first_stage == true) {
+	if (is_network_test == false || first_stage == true) {
 		new_texts = texts;
 	}
 	else {

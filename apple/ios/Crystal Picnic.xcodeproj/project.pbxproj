@@ -89,13 +89,11 @@
 		965324D61E78077F00242946 /* enemy_avatar_wander_character_role.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0917F19AFFA4B0084C11A /* enemy_avatar_wander_character_role.cpp */; };
 		965324D71E78077F00242946 /* battle_ai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D0916D19AFFA4B0084C11A /* battle_ai.cpp */; };
 		965324D91E78077F00242946 /* libtgui2-static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CD157F1D31EB3500D140C8 /* libtgui2-static.a */; };
-		965324DA1E78077F00242946 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968AA2F71CFDDAF2008F0B32 /* libpng.a */; };
 		965324DB1E78077F00242946 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9686087D1B6B13EF0008BD29 /* QuartzCore.framework */; };
 		965324DC1E78077F00242946 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9686087B1B6B13A30008BD29 /* CFNetwork.framework */; };
 		965324DD1E78077F00242946 /* liblua5.2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968608771B6B12C30008BD29 /* liblua5.2.a */; };
 		965324DE1E78077F00242946 /* libAllegro5_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D35D1C1B39BCB5000B18FD /* libAllegro5_iOS.a */; };
 		965324DF1E78077F00242946 /* libbassmidi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34B61B6B048C00705360 /* libbassmidi.a */; };
-		965324E01E78077F00242946 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34B41B6B046F00705360 /* libz.dylib */; };
 		965324E11E78077F00242946 /* libbass.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34A81B6B046A00705360 /* libbass.a */; };
 		965324E21E78077F00242946 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CE34A91B6B046A00705360 /* libfreetype.a */; };
 		965324E31E78077F00242946 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96919F551D001752001A2702 /* GameKit.framework */; };
@@ -206,6 +204,8 @@
 		96D0921D19B003A80084C11A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D0921C19B003A80084C11A /* Accelerate.framework */; };
 		96D0922819B01AE00084C11A /* data.cpa.uncompressed in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96D0922119B007010084C11A /* data.cpa.uncompressed */; };
 		96D35D1F1B39BDB9000B18FD /* audio_config_loop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96D35D1E1B39BDB9000B18FD /* audio_config_loop.cpp */; };
+		96E0BB5B1E7EA32C00D7B036 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E0BB5A1E7EA32C00D7B036 /* libz.tbd */; };
+		96E0BB621E7EA6A700D7B036 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968AA2F71CFDDAF2008F0B32 /* libpng.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -340,6 +340,7 @@
 		96D0922119B007010084C11A /* data.cpa.uncompressed */ = {isa = PBXFileReference; lastKnownFileType = file; name = data.cpa.uncompressed; path = ../../data.cpa.uncompressed; sourceTree = "<group>"; };
 		96D35D1C1B39BCB5000B18FD /* libAllegro5_iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAllegro5_iOS.a; path = ../../../iphone_libs_r/lib/libAllegro5_iOS.a; sourceTree = "<group>"; };
 		96D35D1E1B39BDB9000B18FD /* audio_config_loop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = audio_config_loop.cpp; path = ../../src/audio_config_loop.cpp; sourceTree = "<group>"; };
+		96E0BB5A1E7EA32C00D7B036 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		96F62FBA1D31070500420563 /* Crystal Picnic.profdata */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Crystal Picnic.profdata"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,15 +349,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E0BB621E7EA6A700D7B036 /* libpng.a in Frameworks */,
+				96E0BB5B1E7EA32C00D7B036 /* libz.tbd in Frameworks */,
 				965324F61E78081300242946 /* GoogleMobileAds.framework in Frameworks */,
 				965324D91E78077F00242946 /* libtgui2-static.a in Frameworks */,
-				965324DA1E78077F00242946 /* libpng.a in Frameworks */,
 				965324DB1E78077F00242946 /* QuartzCore.framework in Frameworks */,
 				965324DC1E78077F00242946 /* CFNetwork.framework in Frameworks */,
 				965324DD1E78077F00242946 /* liblua5.2.a in Frameworks */,
 				965324DE1E78077F00242946 /* libAllegro5_iOS.a in Frameworks */,
 				965324DF1E78077F00242946 /* libbassmidi.a in Frameworks */,
-				965324E01E78077F00242946 /* libz.dylib in Frameworks */,
 				965324E11E78077F00242946 /* libbass.a in Frameworks */,
 				965324E21E78077F00242946 /* libfreetype.a in Frameworks */,
 				965324E31E78077F00242946 /* GameKit.framework in Frameworks */,
@@ -507,6 +508,7 @@
 		96BD8DCC19AFE7CA001BDCE2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96E0BB5A1E7EA32C00D7B036 /* libz.tbd */,
 				965324F51E78081300242946 /* GoogleMobileAds.framework */,
 				96CD157F1D31EB3500D140C8 /* libtgui2-static.a */,
 				96919F551D001752001A2702 /* GameKit.framework */,
