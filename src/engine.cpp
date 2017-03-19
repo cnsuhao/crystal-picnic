@@ -159,7 +159,7 @@ std::string get_linux_language()
 }
 #endif
 
-#if defined ADMOB && defined ALLEGRO_IPHONE
+#if defined ADMOB
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
@@ -170,6 +170,8 @@ bool exit_network_thread = false;
 
 static void *network_connection_test_thread(void *arg)
 {
+	network_thread_is_running = true;
+
 	struct addrinfo *a;
 
 	while (exit_network_thread == false) {
@@ -187,15 +189,10 @@ static void *network_connection_test_thread(void *arg)
 		al_rest(delay);
 		freeaddrinfo(a);
 	}
-	
+
 	exit_network_thread = false;
-
+	
 	return NULL;
-}
-
-static bool connected_to_internet()
-{
-	return network_is_connected;
 }
 #endif
 
@@ -206,7 +203,9 @@ static void do_modal(
 	bool (*callback)(tgui::TGUIWidget *widget),
 	bool (*check_draw_callback)(),
 	void (*before_flip_callback)(),
-	void (*resize_callback)()
+	void (*resize_callback)(),
+	bool is_network_test = false,
+	bool first_stage = false
 	)
 {
 	ALLEGRO_BITMAP *back;
@@ -226,6 +225,9 @@ static void do_modal(
 	ALLEGRO_TIMER *logic_timer = al_create_timer(1.0/60.0);
 	al_register_event_source(queue, al_get_timer_event_source(logic_timer));
 	al_start_timer(logic_timer);
+
+	int count = 0;
+	int delay = 0;
 
 	while (1) {
 #ifdef STEAMWORKS
@@ -274,15 +276,19 @@ static void do_modal(
 #if defined ALLEGRO_IPHONE || defined ALLEGRO_ANDROID
 			else if (event.type == ALLEGRO_EVENT_DISPLAY_SWITCH_OUT) {
 				engine->switch_out();
+				delay = 60;
 			}
 			else if (event.type == ALLEGRO_EVENT_DISPLAY_SWITCH_IN) {
 				engine->switch_in();
+				delay = 60;
 			}
 			else if (event.type == ALLEGRO_EVENT_DISPLAY_HALT_DRAWING) {
 				engine->handle_halt(&event);
+				delay = 60;
 			}
 			else if (event.type == ALLEGRO_EVENT_DISPLAY_RESIZE) {
 				do_acknowledge_resize = true;
+				delay = 60;
 			}
 #endif
 
@@ -295,11 +301,28 @@ static void do_modal(
 			if (callback(w)) {
 				goto done;
 			}
-		}
 
-		if (do_acknowledge_resize) {
-			al_acknowledge_resize(engine->get_display());
-			do_acknowledge_resize = false;
+			if (do_acknowledge_resize) {
+				al_acknowledge_resize(engine->get_display());
+				do_acknowledge_resize = false;
+			}
+
+			if (is_network_test) {
+				if (delay > 0) {
+					delay--;
+				}
+				else {
+					if (network_is_connected) {
+						goto done;
+					}
+					if (first_stage == false) {
+						count++;
+						if (count >= 30*60) { // 30 seconds...
+							goto done;
+						}
+					}
+				}
+			}
 		}
 
 		if (!lost && redraw && (!check_draw_callback || check_draw_callback())) {
@@ -1327,7 +1350,7 @@ bool Engine::init()
 	if (!init_allegro())
 		return false;
 
-#if defined ADMOB && defined ALLEGRO_IPHONE
+#if defined ADMOB
 	al_run_detached_thread(network_connection_test_thread, NULL);
 #endif
 
@@ -1502,12 +1525,13 @@ void Engine::destroy_loops()
 
 void Engine::shutdown()
 {
-#if defined ADMOB && defined ALLEGRO_IPHONE
+#if defined ADMOB
 	exit_network_thread = true;
 	while (exit_network_thread == true) {
 		// just wait...
 	}
 #endif
+
 	cleanup_battle_transition_in();
 
 #if !defined ALLEGRO_ANDROID && !defined ALLEGRO_IPHONE
@@ -1950,11 +1974,11 @@ loop_end:
 		}
 
 #ifdef ADMOB
-		while (connected_to_internet() == false) {
+		if (network_is_connected == false) {
 			std::vector<std::string> v;
 			v.push_back(t("PLEASE_CONNECT"));
 			v.push_back(t("TO_THE_INTERNET"));
-			notify(v, &loops);
+			notify(v, &loops, true, true);
 		}
 #endif
 	}
@@ -3482,12 +3506,19 @@ static bool ok_callback(tgui::TGUIWidget *widget)
 	return widget != NULL;
 }
 
-void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_to_draw)
+void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_to_draw, bool is_network_test, bool first_stage)
 {
+	std::vector<std::string> new_texts;
+	if (first_stage == true) {
+		new_texts = texts;
+	}
+	else {
+		new_texts.push_back(t("TESTING_CONNECTION"));
+	}
 	ALLEGRO_BITMAP *old_target = al_get_target_bitmap();
 	int th = General::get_font_line_height(General::FONT_LIGHT);
 	int w = 200;
-	int h = (4+texts.size())*th+4;
+	int h = (4+new_texts.size())*th+4;
 	Wrap::Bitmap *frame_bmp = Wrap::create_bitmap(w+10, h+10);
 	al_set_target_bitmap(work_bitmap->bitmap);
 	al_clear_to_color(al_map_rgba_f(0, 0, 0, 0));
@@ -3514,10 +3545,10 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 	);
 	bool ttf_was_quick = Graphics::ttf_is_quick();
 	Graphics::ttf_quick(true);
-	for (size_t i = 0; i < texts.size(); i++) {
+	for (size_t i = 0; i < new_texts.size(); i++) {
 		int x = w / 2 + 5;
 		int y = th+i*th + 5;
-		General::draw_text(texts[i], al_map_rgb(0x00, 0x00, 0x00), x, y, ALLEGRO_ALIGN_CENTER);
+		General::draw_text(new_texts[i], al_map_rgb(0x00, 0x00, 0x00), x, y, ALLEGRO_ALIGN_CENTER);
 	}
 	Graphics::ttf_quick(ttf_was_quick);
 	main_color = Graphics::change_brightness(main_color, 1.1f);
@@ -3542,7 +3573,7 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 
 	W_Icon *ok_icon = new W_Icon(ok_bitmap);
 	ok_icon->setX(framex+w/2-25);
-	ok_icon->setY(framey+th*(2+texts.size()));
+	ok_icon->setY(framey+th*(2+new_texts.size()));
 	W_Button *ok_button = new W_Button(
 		ok_icon->getX(),
 		ok_icon->getY(),
@@ -3622,7 +3653,9 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 		ok_callback,
 		NULL,
 		bfc,
-		NULL
+		NULL,
+		is_network_test,
+		first_stage
 	);
 
 	al_destroy_bitmap(bg);
@@ -3642,6 +3675,18 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 	tgui::unhide();
 
 	al_flush_event_queue(event_queue);
+
+	if (is_network_test) {
+		if (network_is_connected == false) {
+			if (first_stage == true) {
+				first_stage = false;
+			}
+			else {
+				first_stage = true;
+			}
+			notify(texts, loops_to_draw, is_network_test, first_stage);
+		}
+	}
 }
 
 static W_Button *button1;

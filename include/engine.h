@@ -139,7 +139,7 @@ public:
 	
 	Wrap::Bitmap *get_work_bitmap();
 
-	void notify(std::vector<std::string> texts, std::vector<Loop *> *loops_to_draw = NULL);
+	void notify(std::vector<std::string> texts, std::vector<Loop *> *loops_to_draw = NULL, bool is_network_test = false, bool first_stage = false);
 	int prompt(std::vector<std::string> texts, std::string button1, std::string button2, std::vector<Loop *> *loops_to_draw = NULL);
 	bool yes_no_prompt(std::vector<std::string> texts, std::vector<Loop *> *loops_to_draw = NULL);
 	// returns -1 on cancel else low->high

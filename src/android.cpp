@@ -348,13 +348,4 @@ void showAd()
 		"()V"
 	);
 }
-
-bool connected_to_internet()
-{
-	return _jni_callBooleanMethod(
-		_al_android_get_jnienv(),
-		_al_android_activity_object(),
-		"connected_to_internet"
-	);
-}
 #endif
