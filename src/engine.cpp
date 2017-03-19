@@ -165,34 +165,61 @@ std::string get_linux_language()
 #include <netdb.h>
 
 bool network_is_connected = true;
-bool network_thread_is_running = false;
-bool exit_network_thread = false;
+volatile bool network_thread_is_running = false;
+ALLEGRO_THREAD *network_thread = NULL;
 
-static void *network_connection_test_thread(void *arg)
+static void *network_connection_test_thread(ALLEGRO_THREAD *thread, void *arg)
 {
 	network_thread_is_running = true;
 
 	struct addrinfo *a;
 
-	while (exit_network_thread == false) {
-		a = 0;
-		int result = getaddrinfo("nooskewl.ca", "80", NULL, &a);
-		double delay;
-		if (result || a == 0) {
-			network_is_connected = false;
-			delay = 3.0;
+	int delay = 0;
+
+	while (al_get_thread_should_stop(thread) == false) {
+		if (delay == 0) {
+			a = 0;
+			int result = getaddrinfo("nooskewl.ca", "80", NULL, &a);
+			if (result || a == 0) {
+				network_is_connected = false;
+				delay = 3;
+			}
+			else {
+				network_is_connected = true;
+				delay = 60;
+			}
+			freeaddrinfo(a);
 		}
 		else {
-			network_is_connected = true;
-			delay = 60.0;
+			delay--;
+			al_rest(1.0);
 		}
-		al_rest(delay);
-		freeaddrinfo(a);
 	}
 
-	exit_network_thread = false;
-	
+	network_thread_is_running = false;
+
 	return NULL;
+}
+
+void create_network_thread()
+{
+	while (network_thread == NULL) {
+		network_thread = al_create_thread(network_connection_test_thread, NULL);
+		if (network_thread) {
+			al_start_thread(network_thread);
+			while (network_thread_is_running == false) {
+				// wait
+			}
+		}
+	}
+}
+
+void destroy_network_thread()
+{
+	if (network_thread != NULL) {
+		al_destroy_thread(network_thread);
+		network_thread = NULL;
+	}
 }
 #endif
 
@@ -1350,8 +1377,8 @@ bool Engine::init()
 	if (!init_allegro())
 		return false;
 
-#if defined ADMOB
-	al_run_detached_thread(network_connection_test_thread, NULL);
+#ifdef ADMOB
+	create_network_thread();
 #endif
 
 	Graphics::init();
@@ -1526,10 +1553,7 @@ void Engine::destroy_loops()
 void Engine::shutdown()
 {
 #if defined ADMOB
-	exit_network_thread = true;
-	while (exit_network_thread == true) {
-		// just wait...
-	}
+	destroy_network_thread();
 #endif
 
 	cleanup_battle_transition_in();
@@ -3069,6 +3093,10 @@ void *wait_for_drawing_resume(void *arg)
 
 void Engine::switch_out()
 {
+#if defined ADMOB
+	destroy_network_thread();
+#endif
+
 #if defined ALLEGRO_ANDROID || defined ALLEGRO_IPHONE
 	cfg.save();
 #endif
@@ -3082,6 +3110,10 @@ void Engine::switch_out()
 
 void Engine::switch_in()
 {
+#if defined ADMOB
+	create_network_thread();
+#endif
+
 	start_timers();
 
 	switched_out = false;
@@ -3091,6 +3123,10 @@ void Engine::switch_in()
 
 void Engine::handle_halt(ALLEGRO_EVENT *event)
 {
+#if defined ADMOB
+	destroy_network_thread();
+#endif
+
 	stop_timers();
 
 #ifdef ALLEGRO_ANDROID
@@ -3151,6 +3187,10 @@ void Engine::handle_halt(ALLEGRO_EVENT *event)
 	General::load_fonts();
 	Wrap::reload_loaded_bitmaps();
 	//restart_audio = true;
+#endif
+
+#if defined ADMOB
+	create_network_thread();
 #endif
 }
 
