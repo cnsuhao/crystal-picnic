@@ -159,6 +159,46 @@ std::string get_linux_language()
 }
 #endif
 
+#if defined ADMOB && defined ALLEGRO_IPHONE
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
+bool network_is_connected = true;
+bool network_thread_is_running = false;
+bool exit_network_thread = false;
+
+static void *network_connection_test_thread(void *arg)
+{
+	struct addrinfo *a;
+
+	while (exit_network_thread == false) {
+		a = 0;
+		int result = getaddrinfo("nooskewl.ca", "80", NULL, &a);
+		double delay;
+		if (result || a == 0) {
+			network_is_connected = false;
+			delay = 3.0;
+		}
+		else {
+			network_is_connected = true;
+			delay = 60.0;
+		}
+		al_rest(delay);
+		freeaddrinfo(a);
+	}
+	
+	exit_network_thread = false;
+
+	return NULL;
+}
+
+static bool connected_to_internet()
+{
+	return network_is_connected;
+}
+#endif
+
 static void do_modal(
 	ALLEGRO_EVENT_QUEUE *queue,
 	ALLEGRO_COLOR clear_color, // if alpha == 1 then don't use background image
@@ -1287,6 +1327,10 @@ bool Engine::init()
 	if (!init_allegro())
 		return false;
 
+#if defined ADMOB && defined ALLEGRO_IPHONE
+	al_run_detached_thread(network_connection_test_thread, NULL);
+#endif
+
 	Graphics::init();
 
 	reset_game();
@@ -1458,6 +1502,12 @@ void Engine::destroy_loops()
 
 void Engine::shutdown()
 {
+#if defined ADMOB && defined ALLEGRO_IPHONE
+	exit_network_thread = true;
+	while (exit_network_thread == true) {
+		// just wait...
+	}
+#endif
 	cleanup_battle_transition_in();
 
 #if !defined ALLEGRO_ANDROID && !defined ALLEGRO_IPHONE

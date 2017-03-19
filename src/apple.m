@@ -56,6 +56,9 @@ void showAd()
 		if (interstitial.isReady) {
 			[interstitial presentFromRootViewController:al_iphone_get_window(display).rootViewController];
 		}
+		else {
+			requestNewInterstitial();
+		}
 	}];
 }
 #endif // ADMOB

@@ -96,7 +96,7 @@ public class CPActivity extends AllegroActivity implements ConnectionCallbacks, 
 								delay = 60000;
 							}
 							else {
-								delay = 10000;
+								delay = 3000;
 							}
 							try {
 								Thread.sleep(delay);
@@ -306,6 +306,9 @@ public class CPActivity extends AllegroActivity implements ConnectionCallbacks, 
 			public void run() {
 				if (mInterstitialAd.isLoaded()) {
 					mInterstitialAd.show();
+				}
+				else {
+					requestNewInterstitial();
 				}
 			}
 		});
