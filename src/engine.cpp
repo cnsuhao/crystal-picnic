@@ -3048,7 +3048,7 @@ void *wait_for_drawing_resume(void *arg)
 		}
 		else {
 			if (event.type == ALLEGRO_EVENT_DISPLAY_SWITCH_IN) {
-				engine->switch_in();
+				engine->switch_in(true);
 			}
 			else if (event.type == ALLEGRO_EVENT_DISPLAY_SWITCH_OUT) {
 				engine->switch_out();
@@ -3108,10 +3108,14 @@ void Engine::switch_out()
 	switch_music_out();
 }
 
-void Engine::switch_in()
+void Engine::switch_in(bool in_halt)
 {
 #if defined ADMOB
-	create_network_thread();
+	if (in_halt == false) {
+		create_network_thread();
+	}
+#else
+	(void)create_network_thread;
 #endif
 
 	start_timers();

@@ -188,7 +188,7 @@ public:
 	bool get_purchased();
 	
 	void switch_out();
-	void switch_in();
+	void switch_in(bool in_halt = false);
 	void handle_halt(ALLEGRO_EVENT *event);
 	bool is_switched_out();
 
