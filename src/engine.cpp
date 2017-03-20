@@ -187,8 +187,8 @@ static void *network_connection_test_thread(ALLEGRO_THREAD *thread, void *arg)
 			else {
 				network_is_connected = true;
 				delay = 60;
+				freeaddrinfo(a);
 			}
-			freeaddrinfo(a);
 		}
 		else {
 			delay--;
