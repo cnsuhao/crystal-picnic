@@ -254,7 +254,9 @@ static void do_modal(
 	al_register_event_source(queue, al_get_timer_event_source(logic_timer));
 	al_start_timer(logic_timer);
 
+#ifdef ADMOB
 	int count = 0;
+#endif
 	int delay = 0;
 
 	while (1) {
@@ -335,6 +337,7 @@ static void do_modal(
 				do_acknowledge_resize = false;
 			}
 
+#ifdef ADMOB
 			if (is_network_test) {
 				if (delay > 0) {
 					delay--;
@@ -351,6 +354,7 @@ static void do_modal(
 					}
 				}
 			}
+#endif
 		}
 
 		if (!lost && redraw && (!check_draw_callback || check_draw_callback())) {
@@ -3115,8 +3119,6 @@ void Engine::switch_in(bool in_halt)
 	if (in_halt == false) {
 		create_network_thread();
 	}
-#else
-	(void)create_network_thread;
 #endif
 
 	start_timers();
@@ -3721,6 +3723,7 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 
 	al_flush_event_queue(event_queue);
 
+#ifdef ADMOB
 	if (is_network_test) {
 		if (network_is_connected == false) {
 			if (first_stage == true) {
@@ -3732,6 +3735,7 @@ void Engine::notify(std::vector<std::string> texts, std::vector<Loop *> *loops_t
 			notify(texts, loops_to_draw, is_network_test, first_stage);
 		}
 	}
+#endif
 }
 
 static W_Button *button1;
