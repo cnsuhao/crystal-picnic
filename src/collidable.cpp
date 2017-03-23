@@ -248,8 +248,10 @@ bool Collidable::collides_with(Collidable &c)
 		return collides_with_bones(pos, bones);
 	}
 
+#if 0
 	// Should never get here
 	General::log_message("IMPOSSIBLE CONDITION: collides_with unknown");
 	return false;
+#endif
 }
 

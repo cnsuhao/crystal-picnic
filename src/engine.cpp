@@ -257,7 +257,10 @@ static void do_modal(
 #ifdef ADMOB
 	int count = 0;
 #endif
+
+#if defined ALLEGRO_IPHONE || defined ALLEGRO_ANDROID
 	int delay = 0;
+#endif
 
 	while (1) {
 #ifdef STEAMWORKS
@@ -320,6 +323,9 @@ static void do_modal(
 				do_acknowledge_resize = true;
 				delay = 60;
 			}
+#ifndef ADMOB
+            (void)delay;
+#endif
 #endif
 
 			if (engine->get_send_tgui_events()) {
@@ -3252,7 +3258,7 @@ void Engine::save_game(int number)
 	// FIXME: update save state version here
 	Lua::set_save_state_version(1);
 
-	bool is_map;
+	bool is_map = false;
 	std::string area_name;
 	Area_Manager *area = NULL;
 
@@ -3410,7 +3416,7 @@ void Engine::save_game(int number)
 	}
 }
 
-#ifdef STEAMWORKS
+#ifdef STEAMWORKS_XXX_DONT_DO_THIS
 static void maybe_force_achievement(std::string name)
 {
 	bool complete = engine->milestone_is_complete(name);

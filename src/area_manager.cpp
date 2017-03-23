@@ -2420,6 +2420,7 @@ int Area_Manager::height_at(int x, int y)
 {
 	return 0;
 
+#if 0
 	// height values are 4 bit
 	int extra;
 	if (pixel_size.w % 2 == 1)
@@ -2443,6 +2444,7 @@ int Area_Manager::height_at(int x, int y)
 	}
 
 	return ((15-value)-7)*4;
+#endif
 }
 
 Area_Manager::Area_Floating_Block Area_Manager::create_floating_block(int layer, int offset_x, int offset_y, bool pre)
@@ -3170,6 +3172,7 @@ void Area_Manager::optimize_tiled_area()
 {
 // FIXME
 return;
+#if 0
 	int count = 0;
 	
 	for (size_t i = 0; i < tile_sheets.size(); i++) {
@@ -3268,6 +3271,7 @@ return;
 	}
 
 	General::log_message("Removed " + General::itos(count) + " invisible tiles\n");
+#endif
 }
 
 bool Area_Manager::reposition_entity_in_vector(int id, int before)

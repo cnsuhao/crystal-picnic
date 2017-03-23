@@ -231,16 +231,20 @@ void log_message(std::string msg)
 	}
 	else {
 		return;
+#if 0
 		std::cout << tmp << std::endl;
+#endif
 	}
 #else
 	return;
+#if 0
 #if defined ALLEGRO_MACOSX
 	LOG(tmp.c_str());
 #elif defined ALLEGRO_ANDROID
 	ALLEGRO_DEBUG("%s\n", tmp.c_str());
 #else
 	std::cout << tmp << std::endl;
+#endif
 #endif
 #endif
 }
@@ -376,9 +380,9 @@ void logic()
 // Closes 'f'
 unsigned char *slurp_from_file(ALLEGRO_FILE *f, int *ret_size, bool terminate_with_0, bool use_malloc)
 {
-	long size = al_fsize(f);
+	int size = (int)al_fsize(f);
 	unsigned char *bytes;
-	int extra = terminate_with_0;
+    int extra = terminate_with_0 ? 1 : 0;
 	
 	if (size < 0) {
 		std::vector<char> v;
