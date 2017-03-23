@@ -149,16 +149,16 @@ void CSteamAchievements::OnAchievementStored( UserAchievementStored_t *pCallback
 
 Achievement_t g_Achievements[NUM_ACHIEVEMENTS] = 
 {
-	{ 0, "chests", "Thar Be Treasure", 0, 0 },
-	{ 1, "credits", "The Accused", 0, 0 },
-	{ 2, "bonus", "Honey Bunny", 0, 0 },
-	{ 3, "crystals", "All Decked Out", 0, 0 },
-	{ 4, "crystal", "Beefed Up", 0, 0 },
-	{ 5, "whack", "Bonk Bonk", 0, 0 },
-	{ 6, "attack", "Whale On 'Em", 0, 0 },
-	{ 7, "defense", "Tank Topped", 0, 0 },
-	{ 8, "egberts", "Egbert's Pond", 0, 0 },
-	{ 9, "frogberts", "Frogbert's 'Pad", 0, 0 }
+	{ 0, "chests", "Thar Be Treasure", "", 0, 0 },
+	{ 1, "credits", "The Accused", "", 0, 0 },
+	{ 2, "bonus", "Honey Bunny", "", 0, 0 },
+	{ 3, "crystals", "All Decked Out", "", 0, 0 },
+	{ 4, "crystal", "Beefed Up", "", 0, 0 },
+	{ 5, "whack", "Bonk Bonk", "", 0, 0 },
+	{ 6, "attack", "Whale On 'Em", "", 0, 0 },
+	{ 7, "defense", "Tank Topped", "", 0, 0 },
+	{ 8, "egberts", "Egbert's Pond", "", 0, 0 },
+	{ 9, "frogberts", "Frogbert's 'Pad", "", 0, 0 }
 };
 
 CSteamAchievements*	g_SteamAchievements = NULL;
