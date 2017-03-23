@@ -174,8 +174,6 @@
 		966514E11D3EF5790033EB68 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96FECAD61B692A840020320A /* player.cpp */; };
 		966514E21D3EF5790033EB68 /* my_load_bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96FECAD31B692A840020320A /* my_load_bitmap.cpp */; };
 		966514E31D3EF5790033EB68 /* battle_ai.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 96FECAAD1B692A840020320A /* battle_ai.cpp */; };
-		966514E51D3EF5790033EB68 /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96919F531D0010F5001A2702 /* libpng.a */; };
-		966514E61D3EF5790033EB68 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96919F491D00088C001A2702 /* libz.tbd */; };
 		966514E71D3EF5790033EB68 /* libbass.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 963D65681B7624C70064509A /* libbass.dylib */; };
 		966514E81D3EF5790033EB68 /* libbassmidi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 963D65691B7624C70064509A /* libbassmidi.dylib */; };
 		966514E91D3EF5790033EB68 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96D35D181B39A820000B18FD /* IOKit.framework */; };
@@ -188,7 +186,6 @@
 		966514F11D3EF5790033EB68 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672075C19A59861008F7DB1 /* AudioToolbox.framework */; };
 		966514F21D3EF5790033EB68 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672069419A5973D008F7DB1 /* AppKit.framework */; };
 		966514F31D3EF5790033EB68 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672069119A5973D008F7DB1 /* Cocoa.framework */; };
-		966514F51D3EF5790033EB68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FECB421B692EED0020320A /* Images.xcassets */; };
 		966514F71D3EF5790033EB68 /* libbass.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96919F4D1D000F9D001A2702 /* libbass.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		966514F81D3EF5790033EB68 /* libbassmidi.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96919F4E1D000F9D001A2702 /* libbassmidi.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		966514FA1D3EF5790033EB68 /* data.cpa in CopyFiles */ = {isa = PBXBuildFile; fileRef = 963D65701B7625010064509A /* data.cpa */; };
@@ -307,6 +304,8 @@
 		9672075B19A59860008F7DB1 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672069419A5973D008F7DB1 /* AppKit.framework */; };
 		9672075D19A59861008F7DB1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672075C19A59861008F7DB1 /* AudioToolbox.framework */; };
 		9672076019A59875008F7DB1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9672075E19A59875008F7DB1 /* OpenGL.framework */; };
+		968D8F6C1E8368B80076ECF9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96919F491D00088C001A2702 /* libz.tbd */; };
+		968D8F6F1E8370420076ECF9 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 968D8F6E1E8370420076ECF9 /* icon.icns */; };
 		96919F4A1D00088C001A2702 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 96919F491D00088C001A2702 /* libz.tbd */; };
 		96919F4F1D000F9D001A2702 /* libbass.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96919F4D1D000F9D001A2702 /* libbass.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		96919F501D000F9D001A2702 /* libbassmidi.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96919F4E1D000F9D001A2702 /* libbassmidi.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -508,6 +507,8 @@
 		9672075C19A59861008F7DB1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9672075E19A59875008F7DB1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		9672075F19A59875008F7DB1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		968D8F6B1E8368600076ECF9 /* apple.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = apple.m; path = ../../src/apple.m; sourceTree = "<group>"; };
+		968D8F6E1E8370420076ECF9 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../../icons/icon.icns; sourceTree = "<group>"; };
 		96919F491D00088C001A2702 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		96919F4D1D000F9D001A2702 /* libbass.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbass.dylib; path = ../../../libs/mac/lib/libbass.dylib; sourceTree = "<group>"; };
 		96919F4E1D000F9D001A2702 /* libbassmidi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbassmidi.dylib; path = ../../../libs/mac/lib/libbassmidi.dylib; sourceTree = "<group>"; };
@@ -715,9 +716,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968D8F6C1E8368B80076ECF9 /* libz.tbd in Frameworks */,
 				9665156F1D3EF70A0033EB68 /* libsteam_api.dylib in Frameworks */,
-				966514E51D3EF5790033EB68 /* libpng.a in Frameworks */,
-				966514E61D3EF5790033EB68 /* libz.tbd in Frameworks */,
 				966514E71D3EF5790033EB68 /* libbass.dylib in Frameworks */,
 				966514E81D3EF5790033EB68 /* libbassmidi.dylib in Frameworks */,
 				966514E91D3EF5790033EB68 /* IOKit.framework in Frameworks */,
@@ -782,6 +782,8 @@
 		9672068519A5973C008F7DB1 = {
 			isa = PBXGroup;
 			children = (
+				968D8F6E1E8370420076ECF9 /* icon.icns */,
+				968D8F6B1E8368600076ECF9 /* apple.m */,
 				966515701D3EF7200033EB68 /* libsteam_api.dylib */,
 				96919F4D1D000F9D001A2702 /* libbass.dylib */,
 				96919F4E1D000F9D001A2702 /* libbassmidi.dylib */,
@@ -1130,7 +1132,7 @@
 		9672068619A5973C008F7DB1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Nooskewl;
 				TargetAttributes = {
 					966514281D3EF5390033EB68 = {
@@ -1144,6 +1146,7 @@
 					};
 					966514941D3EF5790033EB68 = {
 						DevelopmentTeam = ZCLK6CUZ99;
+						ProvisioningStyle = Automatic;
 					};
 					966515001D3EF58E0033EB68 = {
 						DevelopmentTeam = ZCLK6CUZ99;
@@ -1205,7 +1208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				966514F51D3EF5790033EB68 /* Images.xcassets in Resources */,
+				968D8F6F1E8370420076ECF9 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1316,6 +1319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9665149B1D3EF5790033EB68 /* apple.m in Sources */,
 				9665159C1D3F004A0033EB68 /* wrap.cpp in Sources */,
 				966515891D3EFE9A0033EB68 /* atlas_accessor.cpp in Sources */,
 				9665158A1D3EFE9A0033EB68 /* atlas.cpp in Sources */,
@@ -1326,7 +1330,6 @@
 				966514981D3EF5790033EB68 /* credits_loop.cpp in Sources */,
 				966514991D3EF5790033EB68 /* bass.cpp in Sources */,
 				9665149A1D3EF5790033EB68 /* crystalpicnic.cpp in Sources */,
-				9665149B1D3EF5790033EB68 /* apple.m in Sources */,
 				9665149C1D3EF5790033EB68 /* abilities.cpp in Sources */,
 				9665149E1D3EF5790033EB68 /* weaponized_entity.cpp in Sources */,
 				9665149F1D3EF5790033EB68 /* npc.cpp in Sources */,
@@ -1597,6 +1600,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/mac/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.nooskewl.crystalpicnic-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -1634,6 +1638,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/mac/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.nooskewl.crystalpicnic-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -1646,14 +1651,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Nooskewl (ZCLK6CUZ99)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Nooskewl (ZCLK6CUZ99)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZCLK6CUZ99;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1672,6 +1674,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/mac/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.nooskewl.crystalpicnic-steam";
 				PRODUCT_NAME = "Crystal Picnic";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -1684,14 +1687,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Nooskewl (ZCLK6CUZ99)";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application: Nooskewl (ZCLK6CUZ99)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZCLK6CUZ99;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1711,6 +1711,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/mac/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.nooskewl.crystalpicnic-steam";
 				PRODUCT_NAME = "Crystal Picnic";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -1750,6 +1751,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/mac/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nooskewl.crystalpicnic;
 				PRODUCT_NAME = "Crystal Picnic";
 				PROVISIONING_PROFILE = "1b89608f-79f6-464c-914b-f4a6437a3f6b";
 				PROVISIONING_PROFILE_SPECIFIER = "Crystal Picnic Development";
@@ -1791,6 +1793,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/mac/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nooskewl.crystalpicnic;
 				PRODUCT_NAME = "Crystal Picnic";
 				PROVISIONING_PROFILE = "a48ccb07-132f-43f9-868a-7d738ca9de43";
 				PROVISIONING_PROFILE_SPECIFIER = "Crystal Picnic Mac App Store";
@@ -1813,13 +1816,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1851,14 +1860,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1897,6 +1911,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/mac/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.nooskewl.crystalpicnic;
 				PRODUCT_NAME = "Crystal Picnic";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -1932,6 +1947,7 @@
 				LIBRARY_SEARCH_PATHS = /Users/trent/code/libs/mac/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.nooskewl.crystalpicnic;
 				PRODUCT_NAME = "Crystal Picnic";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
