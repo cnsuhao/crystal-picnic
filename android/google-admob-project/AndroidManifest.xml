@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="ca.nooskewl.crystalpicnicads"
-        android:versionCode="8"
+        android:versionCode="9"
         android:versionName="1.9.9"
 	android:installLocation="auto">
     <application android:label="@string/app_name" android:icon="@drawable/icon" android:logo="@drawable/logo" android:banner="@drawable/banner" android:theme="@style/NoActionBar">
@@ -44,4 +44,5 @@
     <uses-sdk android:targetSdkVersion="23"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 </manifest> 
